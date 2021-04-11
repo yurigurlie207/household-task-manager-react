@@ -1,8 +1,14 @@
 export function fetchSubtasks() {
     return (dispatch) => {
-      dispatch({ type: 'START_ADDING_SUBTASKS_REQUEST' });
-      fetch('http://api.open-notify.org/astros.json')
+      dispatch({ type: 'LOADING SUBTASKS' });
+      fetch('http://127.0.0.1:3000/subtasks')
         .then(response => response.json())
-        .then(subtasks => dispatch({ type: 'ADD_SUBTASKS', subtasks }));
+        .then(function(results) {
+          let subtasks = results.data
+          console.log(subtasks)
+          return dispatch({ type: 'ADD_SUBTASKS', subtasks })
+        }
+          ).catch(function(error) {
+            console.log(error)});
     };
   }

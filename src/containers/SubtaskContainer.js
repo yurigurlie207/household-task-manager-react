@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import SubtaskForm from '../components/subtasks/SubtaskForm'
 import Subtasks from '../components/subtasks/Subtasks'
 import { connect } from 'react-redux'
 import { fetchSubtasks } from '../actions/subtasks'
@@ -13,8 +12,7 @@ class SubtaskContainer extends Component {
   render() {
     return (
       <div>
-        <button onClick={(event) => this.handleOnClick(event)} />
-        <SubtaskForm />
+        <button onClick={(event) => this.handleOnClick(event)}> Fetch Subtasks </button>   
         <Subtasks
           subtasks={this.props.subtasks}
         />
