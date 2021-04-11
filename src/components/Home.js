@@ -3,7 +3,7 @@ import React from 'react';
 const Home = () => {
   return (
     <div>
-      <h1>Welcome To the Household Task Manager</h1>
+      <h1>Household Task Manager</h1>
     </div>
   );
 };
