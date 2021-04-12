@@ -1,23 +1,23 @@
 import React, { Component } from 'react';
+import Subtask from './Subtask';
 
 class Subtasks extends Component {
 
   render() {
  
-    const { restaurants, deleteRestaurant } = this.props;
-    const restaurantList = restaurants.map(restaurant => {
+    const  subtasks = this.props.subtasks || []
+    const subtaskList = subtasks.map(subtask => {
       return (
         <Subtask
-            key={restaurant.id}
-            restaurant={restaurant}
-            deleteRestaurant={deleteRestaurant}
+            key={subtask.id}
+            subtask={subtask}
         />
       )
     });
 
     return(
       <ul>
-        {}
+        {subtaskList}
       </ul>
     );
   }

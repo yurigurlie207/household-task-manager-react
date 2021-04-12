@@ -13,6 +13,8 @@ class SubtaskContainer extends Component {
   //     }
   // };
 
+  
+
   handleOnClick() {
     this.props.fetchSubtasks()
   }
@@ -36,7 +38,13 @@ const mapDispatchToProps = dispatch => ({
   // deleteSubtask: id => dispatch({type: 'DELETE_SUBTASK', id})
 })
 
-// const mapStateToProps = state => ({ subtasks: state.subtasks })
+const mapStateToProps = state => {
+  return {
+    subtasks: state.subtasks,
+    requesting: state.requesting
+  }
+}
 
 
-export default connect(null, mapDispatchToProps)(SubtaskContainer)
+
+export default connect(mapStateToProps, mapDispatchToProps)(SubtaskContainer)
