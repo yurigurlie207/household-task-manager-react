@@ -5,7 +5,6 @@ export function fetchSubtasks() {
         .then(response => response.json())
         .then(function(results) {
           let subtasks = results.data
-          console.log(subtasks)
           return dispatch({ type: 'ADD_SUBTASKS', subtasks })
         }
           ).catch(function(error) {

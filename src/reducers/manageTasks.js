@@ -9,11 +9,11 @@ export default function manageTasks(state = {
         }
    
       case 'ADD_SUBTASKS':
-        return {
+        return console.log({
           ...state,
           subtasks: action.subtasks,
           requesting: false
-        }
+        })
      
       default:
         return state;

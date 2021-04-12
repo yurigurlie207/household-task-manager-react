@@ -5,6 +5,14 @@ import { fetchSubtasks } from '../actions/subtasks'
 
 class SubtaskContainer extends Component {
 
+  // constructor(props) {
+  //   super(props);
+
+  //   this.state = {
+  //     subtasks: []
+  //     }
+  // };
+
   handleOnClick() {
     this.props.fetchSubtasks()
   }
@@ -21,7 +29,6 @@ class SubtaskContainer extends Component {
   }
 }
 
-const mapStateToProps = state => ({ subtasks: state.subtasks })
 
 const mapDispatchToProps = dispatch => ({
   fetchSubtasks: () => dispatch(fetchSubtasks())
@@ -29,4 +36,7 @@ const mapDispatchToProps = dispatch => ({
   // deleteSubtask: id => dispatch({type: 'DELETE_SUBTASK', id})
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(SubtaskContainer)
+// const mapStateToProps = state => ({ subtasks: state.subtasks })
+
+
+export default connect(null, mapDispatchToProps)(SubtaskContainer)
