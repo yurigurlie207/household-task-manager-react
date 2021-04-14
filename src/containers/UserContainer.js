@@ -1,17 +1,38 @@
-import React from 'react';
+import React, { Component } from 'react';
+import Users from '../components/users/Users'
+import { connect } from 'react-redux'
+import { fetchUsers } from '../actions/subtasks'
 
-const UserContainer = () => {
+class UserContainer extends Component {
 
+  handleOnClick() {
+    this.props.fetchUsers()
+  }
 
-  return (
+  render() {
+    return (
       <div>
-          <h1>Dashboard</h1>
-         
-     
+        <button onClick={(event) => this.handleOnClick(event)}> Fetch Users </button>   
+        <Users
+          users={this.props.users}
+        />
       </div>
-  )
+    );
+  }
 }
 
 
-export default UserContainer
+const mapDispatchToProps = dispatch => ({
+  fetchUsers: () => dispatch(fetchUsers())
+})
 
+const mapStateToProps = state => {
+  return {
+    users: state.users,
+    requesting: state.requesting
+  }
+}
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserContainer)

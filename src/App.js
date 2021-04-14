@@ -6,8 +6,9 @@ import {
 import NavBar from './components/NavBar';
 import Home from './components/Home';
 import TasksContainer from './containers/TaskContainer';
-import SubtasksContainer from './containers/SubtaskContainer';
+import SubtaskContainer from './containers/SubtaskContainer';
 import UsertaskContainer from './containers/UsertaskContainer';
+import UserContainer from './containers/UserContainer';
 
 function App() {
   return (
@@ -16,8 +17,9 @@ function App() {
       <NavBar />
       <Route path="/" component={Home} />
       <Route path="/tasks" component={TasksContainer} />
-      <Route path="/subtasks" component={SubtasksContainer} />
+      <Route path="/subtasks" component={SubtaskContainer} />
       <Route path="/dashboard" component={UsertaskContainer} />
+      <Route path="/users" component={UserContainer} />
     </div>
   </Router>
   );
