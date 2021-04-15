@@ -26,7 +26,7 @@ export function fetchSubtasks() {
     };
   }
 
-  export function fetchUsers() {
+  export function fetchUsertasks() {
     return (dispatch) => {
       dispatch({ type: 'LOADING_USERTASKS' });
       fetch('http://127.0.0.1:3000/user_tasks')

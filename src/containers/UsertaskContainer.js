@@ -28,7 +28,7 @@ const mapDispatchToProps = dispatch => ({
 
 const mapStateToProps = state => {
   return {
-    users: state.usertasks,
+    usertasks: state.usertasks,
     requesting: state.requesting
   }
 }

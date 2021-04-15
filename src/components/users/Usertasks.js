@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
 
-class Users extends Component {
+class Usertasks extends Component {
 
   render() {
  
-    const  users = this.props.users || []
-    const userList = users.map( user => {
+    const  usertasks = this.props.usertasks || []
+    const usertaskList = usertasks.map( usertask => {
       return (
-        <li>{user.attributes.username}</li>
+      <li>{usertask.id}, {usertask.relationships.user.data.id}, {usertask.relationships.subtask.data.id}</li>
       )
     });
 
     return(
       <ul>
-        {userList}
+        {usertaskList}
       </ul>
     );
   }
 };
 
-export default Users;
+export default Usertasks;
