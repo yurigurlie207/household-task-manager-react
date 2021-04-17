@@ -5,6 +5,7 @@ export default function manageTasks(state = {
       case 'LOADING_SUBTASKS':
         return {
           ...state,
+          subtasks: [...state.subtasks],
         requesting: true
         }
    
@@ -17,6 +18,7 @@ export default function manageTasks(state = {
         case 'LOADING_USERS':
           return {
             ...state,
+            users: [...state.users],
           requesting: true
           }
      
@@ -30,6 +32,7 @@ export default function manageTasks(state = {
           case 'LOADING_USERTASKS':
             return {
               ...state,
+              usertasks: [...state.usertasks],
             requesting: true
             }
        
