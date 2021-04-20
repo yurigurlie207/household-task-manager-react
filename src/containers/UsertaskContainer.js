@@ -16,7 +16,6 @@ class UsertaskContainer extends Component {
         <Usertasks
           usertasks={this.props.usertasks}
           subtasks={this.props.subtasks}
-          users={this.props.users}
         />
       </div>
     );

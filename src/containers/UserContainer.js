@@ -15,6 +15,7 @@ class UserContainer extends Component {
         <button onClick={(event) => this.handleOnClick(event)}> Fetch Users </button>   
         <Users
           users={this.props.users}
+          usertasks={this.props.usertasks}
         />
       </div>
     );
