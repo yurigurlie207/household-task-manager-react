@@ -3,9 +3,7 @@ import UsertaskContainer from '../../containers/UsertaskContainer'
 
 class User extends Component {
 
-  handleOnClick() {
-    // this.props.deleteRestaurant(this.props.restaurant.id);
-  }
+ 
 
   render() {
     const { user } = this.props;
@@ -15,7 +13,6 @@ class User extends Component {
         <li>
             
           {user.attributes.username}
-          <button onClick={() => this.handleOnClick()}> X </button>
           <UsertaskContainer user={user}/>
         </li>
       </div>
