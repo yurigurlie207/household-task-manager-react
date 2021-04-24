@@ -6,10 +6,13 @@ class Usertasks extends Component {
  
     // const  subtasks = this.props.subtasks || []
     const usertasks = this.props.usertasks || []
-    const userID = this.props.user.id
+    const userID = this.props.user.id 
     const associatedTasks = usertasks.filter(usertask => usertask.relationships.user.data.id === userID);
     const usertaskList = associatedTasks.map( usertask => {
- 
+      
+      // const subtask = usertasks.included.find(subtask => subtask.id === usertask.relationships.subtask.data.id)
+      // {subtask.attributes.title}
+
       return (
       <li>{usertask.id}, {usertask.relationships.user.data.id}, {usertask.relationships.subtask.data.id}</li>
       )

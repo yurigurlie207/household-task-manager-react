@@ -7,7 +7,9 @@ class Users extends Component {
  
     const  users = this.props.users || []
     const userList = users.map( user => {
-
+    // console.log("HMMM")
+    // console.log(this.props.users)
+  
 
       return (
         <User key={user.id} user={user}/>

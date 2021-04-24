@@ -11,7 +11,6 @@ class User extends Component {
     return (
       <div>
         <li>
-            
           {user.attributes.username}
           <UsertaskContainer user={user}/>
         </li>

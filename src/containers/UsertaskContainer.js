@@ -10,8 +10,6 @@ class UsertaskContainer extends Component {
     this.props.fetchUsertasks()
   }
 
-  
-
   render() {
     return (
       <div>
