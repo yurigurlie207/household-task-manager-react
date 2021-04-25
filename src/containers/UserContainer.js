@@ -2,16 +2,18 @@ import React, { Component } from 'react';
 import Users from '../components/users/Users'
 import { connect } from 'react-redux'
 import { fetchUsers } from '../actions/subtasks'
+import { fetchUsertasks } from '../actions/subtasks'
 
 class UserContainer extends Component {
 
   handleOnClick() {
-    this.props.fetchUsers()
+    this.props.fetchUsers();
+    this.props.fetchUsertasks();
   }
 
   render() {
     return (
-      <div>
+      <div >
         <button onClick={(event) => this.handleOnClick(event)}> Fetch Users </button>   
         <Users
           users={this.props.users}
@@ -23,12 +25,14 @@ class UserContainer extends Component {
 
 
 const mapDispatchToProps = dispatch => ({
-  fetchUsers: () => dispatch(fetchUsers())
+  fetchUsers: () => dispatch(fetchUsers()),
+  fetchUsertasks: () => dispatch(fetchUsertasks())
 })
 
 const mapStateToProps = state => {
   return {
     users: state.users,
+    usertasks: state.usertasks,
     requesting: state.requesting
   }
 }

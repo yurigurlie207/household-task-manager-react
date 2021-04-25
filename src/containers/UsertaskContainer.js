@@ -6,14 +6,14 @@ import { fetchUsertasks } from '../actions/subtasks'
 class UsertaskContainer extends Component {
 
 
-  handleOnClick() {
+  handleOnLoad() {
     this.props.fetchUsertasks()
   }
 
   render() {
     return (
-      <div>
-        <button onClick={(event) => this.handleOnClick(event)}> Fetch Usertasks </button>   
+      <div onLoad={(event) => this.handleOnLoad(event)}>
+        {/* <button onClick={(event) => this.handleOnClick(event)}> Fetch Usertasks </button>    */}
         <Usertasks
           usertasks={this.props.usertasks}
           user={this.props.user}
