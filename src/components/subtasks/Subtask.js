@@ -12,7 +12,7 @@ class Subtask extends Component {
       <div>
         <li>
           {subtask.attributes.title}
-          <button onClick={() => this.handleOnClick()}> X </button>
+         
         </li>
       </div>
     );

@@ -42,6 +42,10 @@ export default function manageTasks(state = {
               usertasks: action.usertasks,
               requesting: false
             }
+
+            case 'DELETE_USERTASK':
+
+            return {usertasks: state.usertasks.filter(usertask => usertask.id !== action.usertaskID)}
        
       default:
         return state;

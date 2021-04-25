@@ -4,7 +4,6 @@ class Usertasks extends Component {
 
   render() {
  
-    // const  subtasks = this.props.subtasks || []
     const usertasks = this.props.usertasks.data || []
     const userID = this.props.user.id 
     const associatedTasks = usertasks.filter(usertask => usertask.relationships.user.data.id === userID);
@@ -14,7 +13,9 @@ class Usertasks extends Component {
 
       return (
       // <li>{usertask.id}, {usertask.relationships.user.data.id}, {usertask.relationships.subtask.data.id}</li>
-      <li>{subtask.attributes.title}</li>
+      <li>{subtask.attributes.title} 
+       <button onClick={() => this.props.deleteUsertask()}> X </button>
+      </li>
       )
     });
 

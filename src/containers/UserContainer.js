@@ -3,6 +3,7 @@ import Users from '../components/users/Users'
 import { connect } from 'react-redux'
 import { fetchUsers } from '../actions/subtasks'
 import { fetchUsertasks } from '../actions/subtasks'
+import { deleteUsertasks } from '../actions/subtasks'
 
 class UserContainer extends Component {
 
@@ -22,6 +23,7 @@ class UserContainer extends Component {
   };
 
 
+
   render() {
     let status = ""
     if (this.state.requesting === true) { status = "requesting..."}
@@ -35,6 +37,7 @@ class UserContainer extends Component {
         <Users
           users={this.props.users}
           usertasks={this.props.usertasks}
+          deleteUsertask={this.props.deleteUsertasks()}
         />
       </div>
     );
@@ -45,7 +48,8 @@ class UserContainer extends Component {
 
 const mapDispatchToProps = dispatch => ({
   fetchUsers: () => dispatch(fetchUsers()),
-  fetchUsertasks: () => dispatch(fetchUsertasks())
+  fetchUsertasks: () => dispatch(fetchUsertasks()),
+  deleteUsertasks: () => dispatch(deleteUsertasks())
 })
 
 const mapStateToProps = state => {
@@ -55,7 +59,6 @@ const mapStateToProps = state => {
     requesting: state.requesting
   }
 }
-
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserContainer)
