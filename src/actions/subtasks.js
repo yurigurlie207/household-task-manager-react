@@ -32,7 +32,7 @@ export function fetchSubtasks() {
       fetch('http://127.0.0.1:3000/user_tasks')
         .then(response => response.json())
         .then(function(results) {
-          let usertasks = results.data
+          let usertasks = results
           return dispatch({ type: 'ADD_USERTASKS', usertasks })
         }
           ).catch(function(error) {

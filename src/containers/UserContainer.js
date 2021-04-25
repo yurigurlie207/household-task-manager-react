@@ -26,7 +26,8 @@ class UserContainer extends Component {
     let status = ""
     if (this.state.requesting === true) { status = "requesting..."}
     else {status = "complete"}
-    
+  
+
     return (
       <div >
         <button onClick={(event) => this.handleOnClick(event)}> Fetch Users </button>   
