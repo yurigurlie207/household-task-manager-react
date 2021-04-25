@@ -9,6 +9,8 @@ class UserContainer extends Component {
   handleOnClick() {
     this.props.fetchUsers();
     this.props.fetchUsertasks();
+    console.log(this.props.users)
+    console.log(this.props.usertasks)
   }
 
   render() {
@@ -17,6 +19,7 @@ class UserContainer extends Component {
         <button onClick={(event) => this.handleOnClick(event)}> Fetch Users </button>   
         <Users
           users={this.props.users}
+          usertasks={this.props.usertasks}
         />
       </div>
     );

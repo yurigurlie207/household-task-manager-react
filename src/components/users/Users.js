@@ -4,17 +4,22 @@ import User from './User';
 class Users extends Component {
 
   render() {
- 
-    const  users = this.props.users || []
-    const userList = users.map( user => {
-    // console.log("HMMM")
-    // console.log(this.props.users)
-  
 
-      return (
-        <User key={user.id} user={user}/>
-      )
-    });
+    let userList = [];
+
+    if (this.props.users && this.props.usertasks){
+
+      const  users = this.props.users || []
+      console.log("HMMM")
+      console.log(this.props.users)
+      userList = users.map( user => {
+
+        return (
+          <User key={user.id} user={user} usertasks={this.props.usertasks}/>
+        )
+      });
+   }
+ 
 
     return(
       <ul>

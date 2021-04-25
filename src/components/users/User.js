@@ -1,18 +1,28 @@
 import React, { Component } from 'react';
-import UsertaskContainer from '../../containers/UsertaskContainer'
+import Usertasks from './Usertasks'
 
 class User extends Component {
 
  
 
   render() {
-    const { user } = this.props;
+
+    let username = "";
+    let user = {}
+    let usertasks = []
+
+    if (this.props.user && this.props.usertasks){
+        user = this.props.user;
+        usertasks = this.props.usertasks;
+        username = user.attributes.name
+    }
+ 
 
     return (
       <div>
         <li>
           {user.attributes.username}
-          <UsertaskContainer user={user}/>
+          <Usertasks user={user} usertasks={usertasks}/>
         </li>
       </div>
     );
