@@ -42,7 +42,7 @@ export function fetchSubtasks() {
 
 
   export function deleteUsertasks(usertaskID) {
-    console.log(usertaskID)
+    // console.log(usertaskID)
     return (dispatch) => {
     dispatch({ type: 'DELETING_USERTASK' });
     fetch('http://127.0.0.1:3000/user_tasks' + '/${usertaskID}', {
@@ -53,7 +53,7 @@ export function fetchSubtasks() {
               }
           })
       .then(function() {
-        // return dispatch({ type: 'DELETE_USERTASK', usertaskID })
+        return dispatch({ type: 'DELETE_USERTASK', usertaskID })
       }
         ).catch(function(error) {
           console.log(error)});
