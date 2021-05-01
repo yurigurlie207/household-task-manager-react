@@ -15,7 +15,7 @@ class Users extends Component {
       userList = users.map( user => {
 
         return (
-          <User key={user.id} user={user} usertasks={this.props.usertasks}/>
+          <User key={user.id} user={user} usertasks={this.props.usertasks} delete={this.props.delete}/>
         )
       });
    }

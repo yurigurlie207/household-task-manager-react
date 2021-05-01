@@ -22,7 +22,7 @@ class User extends Component {
       <div>
         <li>
           {user.attributes.username}
-          <Usertasks user={user} usertasks={usertasks}/>
+          <Usertasks user={user} usertasks={usertasks} delete={this.props.delete}/>
         </li>
       </div>
     );

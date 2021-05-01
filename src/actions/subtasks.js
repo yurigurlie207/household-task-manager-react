@@ -42,6 +42,7 @@ export function fetchSubtasks() {
 
 
   export function deleteUsertasks(usertaskID) {
+    console.log("delete")
     return (dispatch) => {
       dispatch({ type: 'DELETING_USERTASKS' });
       fetch('http://127.0.0.1:3000/${usertaskID}',

@@ -37,7 +37,7 @@ class UserContainer extends Component {
         <Users
           users={this.props.users}
           usertasks={this.props.usertasks}
-          deleteUsertask={this.props.deleteUsertasks()}
+          delete={this.props.deleteUsertasks}
         />
       </div>
     );
