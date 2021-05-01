@@ -1,13 +1,21 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
-import { deleteUsertasks } from '../../actions/subtasks'
+// import { connect } from 'react-redux'
+
 
 class Usertasks extends Component {
 
   handleDeleteClick(event) {
-    // console.log(event.target.id)
-   deleteUsertasks(event.target.id)
+   this.props.delete(event.target.id)
   }
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      requesting: false
+      }
+  };
+
 
   render() {
  
@@ -34,11 +42,7 @@ class Usertasks extends Component {
   }
 };
 
-const mapDispatchToProps = dispatch => ({
-  deleteUsertasks: () => dispatch(deleteUsertasks())
-})
-
-export default connect(null, mapDispatchToProps)(Usertasks)
+export default Usertasks
 
 
 

@@ -2,6 +2,7 @@ export default function manageTasks(state = {
   subtasks: [], users: [], usertasks: [], requesting: false 
   }, action) {
     switch (action.type) {
+
       case 'LOADING_SUBTASKS':
         return {
           ...state,
@@ -15,6 +16,7 @@ export default function manageTasks(state = {
           subtasks: action.subtasks,
           requesting: false
         }
+
         case 'LOADING_USERS':
           return {
             ...state,
@@ -43,9 +45,21 @@ export default function manageTasks(state = {
               requesting: false
             }
 
-            case 'DELETE_USERTASK':
-            
-            return {usertasks: state.usertasks.filter(usertask => usertask.id !== action.usertaskID)}
+          case 'DELETING_USERTASK':
+          
+          return {
+            ...state,
+            // usertasks: [...state.usertasks],
+            requesting: true
+          }
+      
+          case 'DELETE_USERTASK':
+    
+          return console.log("hm")
+          // { 
+          //   usertasks: action.usertasks.filter(usertask => usertask.id !== action.usertaskID),
+          //   requesting: false
+          // }
        
       default:
         return state;

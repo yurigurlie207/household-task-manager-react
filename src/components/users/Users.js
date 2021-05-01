@@ -10,12 +10,11 @@ class Users extends Component {
     if (this.props.users && this.props.usertasks){
 
       const  users = this.props.users || []
-      console.log("HMMM")
-      console.log(this.props.users)
+      // console.log(this.props.users)
       userList = users.map( user => {
 
         return (
-          <User key={user.id} user={user} usertasks={this.props.usertasks}/>
+          <User key={user.id} user={user} usertasks={this.props.usertasks} delete={this.props.delete}/>
         )
       });
    }

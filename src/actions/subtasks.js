@@ -43,42 +43,20 @@ export function fetchSubtasks() {
 
   export function deleteUsertasks(usertaskID) {
     console.log(usertaskID)
-    // usertaskID = event.target.index
     return (dispatch) => {
-      dispatch({ type: 'DELETING_USERTASKS' });
-      fetch('http://127.0.0.1:3000/${usertaskID}',
-            {
-                method: "DELETE",
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                }
-            })
-        // .then(function() {
-        //   return dispatch({ type: 'DELETE_USERTASKS', usertaskID })
-        // }
-        //   ).catch(function(error) {
-        //     console.log(error)});
-    };
-  }
+    dispatch({ type: 'DELETING_USERTASK' });
+    fetch('http://127.0.0.1:3000/user_tasks' + '/${usertaskID}', {
+              method: "DELETE",
+              headers: {
+                  'Content-Type': 'application/json',
+                  'Accept': 'application/json'
+              }
+          })
+      .then(function() {
+        // return dispatch({ type: 'DELETE_USERTASK', usertaskID })
+      }
+        ).catch(function(error) {
+          console.log(error)});
+  };
+}
 
-//   function deleteUserTask(event) {
-//     let usertaskId = event.target.dataset.usertaskId;
-//     // console.log(usertaskId);
-
-//     fetch(USERTASKS_URL +`/${usertaskId}`, {
-//         method: "DELETE",
-//         headers: {
-//             'Content-Type': 'application/json',
-//             'Accept': 'application/json'
-//         }
-//     })
-//     .then( function() {
-//         event.target.parentElement.remove();
-//         loadAllUsers();
-//         loadUnassignedSubtasks();
-//         }
-//     )
-//     .catch(err => console.log(err))
-
-// }
