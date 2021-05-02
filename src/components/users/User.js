@@ -7,17 +7,15 @@ class User extends Component {
 
   render() {
 
-    let username = "";
+   
     let user = {}
     let usertasks = []
 
     if (this.props.user && this.props.usertasks){
         user = this.props.user;
         usertasks = this.props.usertasks;
-        username = user.attributes.name
     }
  
-
     return (
       <div>
         <li>

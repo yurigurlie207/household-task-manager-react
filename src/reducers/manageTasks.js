@@ -6,7 +6,7 @@ export default function manageTasks(state = {
       case 'LOADING_SUBTASKS':
         return {
           ...state,
-          subtasks: [...state.subtasks],
+          // subtasks: [...state.subtasks],
         requesting: true
         }
    
@@ -54,12 +54,14 @@ export default function manageTasks(state = {
           }
       
           case 'DELETE_USERTASK':
-    
-          return { 
-            usertasks: state.usertasks.filter(usertask => usertask.id !== action.usertaskID),
-            requesting: false
-          }
-       
+         
+          return {}
+          // { 
+          //   ...state,
+          //   usertasks: state.usertasks.data.filter(usertask => usertask.id !== action.usertaskID),
+          //   requesting: false
+          // }
+        
       default:
         return state;
   

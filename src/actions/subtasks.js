@@ -43,20 +43,20 @@ export function fetchSubtasks() {
 
   export function deleteUsertasks(usertaskID) {
     // console.log(usertaskID)
+    let delete_url = 'http://127.0.0.1:3000/user_tasks/' + usertaskID;
+
     return (dispatch) => {
     dispatch({ type: 'DELETING_USERTASK' });
-    fetch('http://127.0.0.1:3000/user_tasks' + '/${usertaskID}', {
+    fetch(delete_url, {
               method: "DELETE",
               headers: {
                   'Content-Type': 'application/json',
                   'Accept': 'application/json'
               }
-          })
-      .then(function() {
-        return dispatch({ type: 'DELETE_USERTASK', usertaskID })
-      }
-        ).catch(function(error) {
+          }).catch(function(error) {
           console.log(error)});
-  };
+
+      };
+
 }
 
