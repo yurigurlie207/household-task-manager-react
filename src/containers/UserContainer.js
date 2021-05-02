@@ -18,6 +18,7 @@ class UserContainer extends Component {
     super(props);
 
     this.state = {
+      usertasks: props.usertasks,
       requesting: false
       }
   };
@@ -35,7 +36,7 @@ class UserContainer extends Component {
         <p>Request Status: {status}</p>
         <Users
           users={this.props.users}
-          usertasks={this.props.usertasks}
+          usertasks={this.state.usertasks}
           delete={this.props.deleteUsertasks}
         />
       </div>

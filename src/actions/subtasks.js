@@ -53,7 +53,9 @@ export function fetchSubtasks() {
                   'Content-Type': 'application/json',
                   'Accept': 'application/json'
               }
-          }).catch(function(error) {
+          }).then( ()=> {   return dispatch({ type: 'ADD_USERTASKS', usertaskID: usertaskID })}
+          )
+          .catch(function(error) {
           console.log(error)});
 
       };
