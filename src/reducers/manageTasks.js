@@ -20,7 +20,7 @@ export default function manageTasks(state = {
         case 'LOADING_USERS':
           return {
             ...state,
-            users: [...state.users],
+            // users: [...state.users],
           requesting: true
           }
      
@@ -34,7 +34,7 @@ export default function manageTasks(state = {
           case 'LOADING_USERTASKS':
             return {
               ...state,
-              usertasks: [...state.usertasks],
+              // usertasks: [...state.usertasks],
             requesting: true
             }
        
@@ -46,10 +46,8 @@ export default function manageTasks(state = {
             }
 
           case 'DELETING_USERTASK':
-          
           return {
             ...state,
-            // usertasks: [...state.usertasks],
             requesting: true
           }
       
