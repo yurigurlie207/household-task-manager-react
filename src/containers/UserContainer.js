@@ -14,15 +14,14 @@ class UserContainer extends Component {
     // console.log(this.props.usertasks)
   }
 
-   constructor(props) {
+  constructor(props) {
     super(props);
 
     this.state = {
       // usertasks: props.usertasks,
-      requesting: false
+        requesting: false
       }
   };
-
 
   render() {
     let status = ""
