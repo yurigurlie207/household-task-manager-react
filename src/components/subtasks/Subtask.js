@@ -2,10 +2,13 @@ import React, { Component } from 'react';
 
 class Subtask extends Component {
 
-//   handleOnClick() {
-//     this.props.deleteSubtask(this.props.subtask.id);
-//   }
-
+  handleAssignClick(event) {
+    let selectList = event.previousElementSibling;
+    let checked = selectList.querySelectorAll(':checked');
+    let selectedUsers = [...checked].map(option => option.dataset.userId);
+    
+    this.props.assignUsertasks(selectedUsers,this.props.subtask.id);
+  }
 
   render() {
     let userList = []
@@ -25,6 +28,8 @@ class Subtask extends Component {
            <select multiple>
             {userList}
           </select>
+          :::
+          <button class="assign" onClick={(event) => this.handleAssignClick(event)}>Assign User(s)</button>
         </li>
       </div>
     );

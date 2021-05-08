@@ -6,6 +6,7 @@ import { fetchUsers } from '../actions/subtasks'
 import { fetchUsertasks } from '../actions/subtasks'
 import { deleteUsertasks } from '../actions/subtasks'
 import { fetchSubtasks } from '../actions/subtasks'
+import { assignUsertasks } from '../actions/subtasks'
 
 class UserContainer extends Component {
 
@@ -24,28 +25,37 @@ class UserContainer extends Component {
   };
 
   render() {
+
     let status = ""
     if (this.state.requesting === true) { status = "requesting..."}
     else {status = "complete"}
-  
 
     return (
-      <div >
-        <button onClick={(event) => this.handleOnClick(event)}> Refresh Latest Task Assignments </button>   
-        <div>
-          <Subtasks
-            subtasks={this.props.subtasks}
-            users={this.props.users}
-          />
-        </div>
-        <div>
-            <p>Request Status: {status}</p>
-            <Users
+      <div>
+        <div class="refresh"> 
+          <button onClick={(event) => this.handleOnClick(event)}> Refresh Latest Task Assignments </button>   
+          <p>Request Status: {status}</p>
+       </div>
+        <div class="main" >
+
+    
+
+          <div class="subtask">
+            <Subtasks
+              subtasks={this.props.subtasks}
               users={this.props.users}
-              usertasks={this.props.usertasks}
-              delete={this.props.deleteUsertasks}
+              assign={this.props.assignUsertasks}
             />
-        </div>  
+          </div>
+
+          <div class="users">
+              <Users
+                users={this.props.users}
+                usertasks={this.props.usertasks}
+                delete={this.props.deleteUsertasks}
+              />
+          </div>  
+        </div>
       </div>
     );
   }
@@ -57,6 +67,7 @@ const mapDispatchToProps = dispatch => ({
   fetchUsers: () => dispatch(fetchUsers()),
   fetchUsertasks: () => dispatch(fetchUsertasks()),
   fetchSubtasks: () => dispatch(fetchSubtasks()),
+  assignUsertasks: (userIDs, subtaskID) => dispatch(assignUsertasks(userIDs,subtaskID)),
   deleteUsertasks: (usertaskID) => dispatch(deleteUsertasks(usertaskID))
 })
 

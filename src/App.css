@@ -41,12 +41,16 @@ a:link, a:visited .navbar{
   text-decoration: none;
 }
 
-
 select {
   height: 40px;
   border: 0px;
   padding-top: 10px;
+  background-color: #eeeeee;
   
+}
+
+button.assign {
+  border-radius: 5px;
 }
 
 select option {
@@ -54,4 +58,39 @@ select option {
   padding: 5px;
   border: solid 1px;
   overflow: visible;
+  background-color: #eeeeee;
+}
+
+div.main {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 20px;
+  padding-top: 10px;
+  padding-bottom: 30px;
+  padding-left: 20px;
+}
+
+div.refresh {
+  padding-left: 20px;
+}
+
+div.user {
+  /* background-color: #eeeeee; */
+  height: auto;
+  width: 300px;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+div.subtask {
+  /* grid-column: span 3; */
+  grid-row: span 2;
+  min-width: 300px;
+  background-color: #eeeeee;
+  border-radius: 10px;
+  padding: 30px;
+  max-height:600px;
+  /* overflow: hidden; */
+  overflow: scroll;
 }

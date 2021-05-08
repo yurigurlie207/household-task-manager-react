@@ -59,6 +59,28 @@ export function fetchSubtasks() {
           console.log(error)});
 
       };
+  }
 
-}
+    export function assignUsertasks(userIDs, subtaskID) {
+      
+      return (dispatch) => {
+      dispatch({ type: 'ASSIGN_USERTASK' });
+      fetch('http://127.0.0.1:3000/user_tasks', {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                  "user_ids": userIDs,
+                  "subtask_id": subtaskID
+                  })
+            })
+            .catch(function(error) {
+            console.log(error)});
+  
+        };
+  }
+
+
 
