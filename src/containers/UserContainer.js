@@ -10,15 +10,13 @@ class UserContainer extends Component {
   handleOnClick() {
     this.props.fetchUsers();
     this.props.fetchUsertasks();
-    // console.log(this.props.users)
-    // console.log(this.props.usertasks)
+    this.props.fetchSubtasks()
   }
 
   constructor(props) {
     super(props);
 
     this.state = {
-      // usertasks: props.usertasks,
         requesting: false
       }
   };
@@ -31,7 +29,7 @@ class UserContainer extends Component {
 
     return (
       <div >
-        <button onClick={(event) => this.handleOnClick(event)}> Fetch Users </button>   
+        <button onClick={(event) => this.handleOnClick(event)}> Refresh Latest Usertasks </button>   
         <p>Request Status: {status}</p>
         <Users
           users={this.props.users}

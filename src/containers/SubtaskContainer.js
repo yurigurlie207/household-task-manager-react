@@ -5,26 +5,26 @@ import { fetchSubtasks } from '../actions/subtasks'
 
 class SubtaskContainer extends Component {
 
-  // constructor(props) {
-  //   super(props);
+  constructor(props) {
+    super(props);
 
-  //   this.state = {
-  //     subtasks: []
-  //     }
-  // };
-
-  
+    this.state = {
+        requesting: false
+      }
+  };
 
   handleOnClick() {
     this.props.fetchSubtasks()
+    console.log(this.props.users)
   }
 
   render() {
     return (
       <div>
-        <button onClick={(event) => this.handleOnClick(event)}> Fetch Subtasks </button>   
+        <button onClick={(event) => this.handleOnClick(event)}> Refresh Latest Subtasks </button>   
         <Subtasks
           subtasks={this.props.subtasks}
+          users={this.props.users}
         />
       </div>
     );

@@ -11,6 +11,7 @@ class Subtasks extends Component {
         <Subtask
             key={subtask.id}
             subtask={subtask}
+            users={this.props.users}
         />
       )
     });

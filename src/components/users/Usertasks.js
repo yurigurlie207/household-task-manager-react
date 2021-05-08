@@ -9,13 +9,8 @@ class Usertasks extends Component {
   handleDeleteClick(event) {
    this.props.delete(event.target.id);
   
-   let ut = this.state.usertasks.filter(usertask => usertask.id !== event.target.id)
+  //  let ut = this.state.usertasks.filter(usertask => usertask.id !== event.target.id)
   // console.log(this.state.usertasks.filter(usertask => usertask.id !== event.target.id))
-  this.setState(
-    {
-      usertasks: ut
-    }, () => this.render()
-  )
 
   }
 
@@ -23,8 +18,6 @@ class Usertasks extends Component {
     super(props);
 
     this.state = {
-      // usertasks: props.usertasks,
-        usertasks: this.props.usertasks.data,
         requesting: false
       }
   };
@@ -34,9 +27,9 @@ class Usertasks extends Component {
   
     let usertaskList = []
     // console.log(this.state.usertasks)
-    if (this.state.usertasks) {
-          const usertasks = this.state.usertasks 
-          console.log(usertasks)
+    if (this.props.usertasks.data) {
+          const usertasks = this.props.usertasks.data
+          // console.log(usertasks)
           const userID = this.props.user.id 
           const associatedTasks = usertasks.filter(usertask => usertask.relationships.user.data.id === userID);
 
@@ -70,8 +63,8 @@ const mapDispatchToProps = dispatch => ({
 const mapStateToProps = state => {
   return {
     // users: state.users,
-    usertasks: state.usertasks
-    // requesting: state.requesting
+    usertasks: state.usertasks,
+    requesting: state.requesting
   }
 }
 
