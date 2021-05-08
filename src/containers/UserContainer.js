@@ -38,9 +38,8 @@ class UserContainer extends Component {
        </div>
         <div class="main" >
 
-    
-
           <div class="subtask">
+            <h1>Unassigned Subtasks</h1>
             <Subtasks
               subtasks={this.props.subtasks}
               users={this.props.users}
@@ -49,6 +48,7 @@ class UserContainer extends Component {
           </div>
 
           <div class="users">
+            <h1>User Assignments</h1>
               <Users
                 users={this.props.users}
                 usertasks={this.props.usertasks}

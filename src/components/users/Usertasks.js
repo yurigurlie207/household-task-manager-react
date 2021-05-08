@@ -38,8 +38,8 @@ class Usertasks extends Component {
             const subtask = this.props.usertasks.included.find(subtask => subtask.id === usertask.relationships.subtask.data.id)
             return (
             // <li>{usertask.id}, {usertask.relationships.user.data.id}, {usertask.relationships.subtask.data.id}</li>
-            <li>{subtask.attributes.title} - {usertask.id}
-            <button id={usertask.id} onClick={(event) => this.handleDeleteClick(event)}> X </button>
+            <li>{subtask.attributes.title} :::
+            <button id={usertask.id} onClick={(event) => this.handleDeleteClick(event)}> Unassign </button>
             </li>
             )
           })

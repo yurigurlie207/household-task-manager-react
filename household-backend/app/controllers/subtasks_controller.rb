@@ -1,6 +1,6 @@
 class SubtasksController < ApplicationController 
     def index
-       subtasks = Subtask.all
+       subtasks = Subtask.unassigned
        render json: SubtaskSerializer.new(subtasks)
     end
 end
