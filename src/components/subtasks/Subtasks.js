@@ -12,7 +12,7 @@ class Subtasks extends Component {
             key={subtask.id}
             subtask={subtask}
             users={this.props.users}
-            assign={this.props.assignUsertasks}
+            assign={this.props.assign}
         />
       )
     });

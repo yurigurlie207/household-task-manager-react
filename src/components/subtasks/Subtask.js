@@ -3,11 +3,10 @@ import React, { Component } from 'react';
 class Subtask extends Component {
 
   handleAssignClick(event) {
-    let selectList = event.previousElementSibling;
+    let selectList = event.target.previousElementSibling;
     let checked = selectList.querySelectorAll(':checked');
     let selectedUsers = [...checked].map(option => option.dataset.userId);
-    
-    this.props.assignUsertasks(selectedUsers,this.props.subtask.id);
+    this.props.assign(selectedUsers,this.props.subtask.id);
   }
 
   render() {
