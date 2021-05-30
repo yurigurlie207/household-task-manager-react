@@ -77,20 +77,19 @@ div.refresh {
 
 div.user {
   /* background-color: #eeeeee; */
-  height: auto;
-  width: 300px;
-  padding: 30px;
+  min-width: 300px;
   border-radius: 10px;
+
 }
 
 div.subtask {
   /* grid-column: span 3; */
   grid-row: span 2;
   min-width: 300px;
-  background-color: #eeeeee;
+  /* background-color: #eeeeee; */
   border-radius: 10px;
-  padding: 30px;
-  max-height:600px;
+  /* padding: 30px; */
+  /* max-height:600px; */
   /* overflow: hidden; */
   overflow: scroll;
 }

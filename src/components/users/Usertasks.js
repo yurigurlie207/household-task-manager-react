@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux'
-// import { fetchUsers } from '../../actions/subtasks'
-// import { fetchUsertasks } from '../../actions/subtasks'
 
 
 class Usertasks extends Component {
 
   handleDeleteClick(event) {
+ 
+   event.target.parentElement.remove()
    this.props.delete(event.target.id);
-  
-  //  let ut = this.state.usertasks.filter(usertask => usertask.id !== event.target.id)
-  // console.log(this.state.usertasks.filter(usertask => usertask.id !== event.target.id))
-
+ 
   }
 
   constructor(props) {
@@ -54,19 +50,6 @@ class Usertasks extends Component {
     };
 
   }
-
-// const mapDispatchToProps = dispatch => ({
-//   fetchUsers: () => dispatch(fetchUsers()),
-//   fetchUsertasks: () => dispatch(fetchUsertasks())
-// })
-
-// const mapStateToProps = state => {
-//   return {
-//     // users: state.users,
-//     usertasks: state.usertasks,
-//     requesting: state.requesting
-//   }
-// }
 
 export default Usertasks
 
