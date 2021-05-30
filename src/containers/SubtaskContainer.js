@@ -8,7 +8,7 @@ import { fetchUsers } from '../actions/subtasks'
 class SubtaskContainer extends Component {
 
   handleOnClick() {
-    this.props.fetchSubtasks()
+    this.props.fetchSubtasks();
     this.props.fetchUsers();
   }
 
@@ -34,8 +34,6 @@ class SubtaskContainer extends Component {
           <p>Request Status: {status}</p>
        </div>
       
-
-           
             <h1>Unassigned Subtasks</h1>
             <Subtasks
               subtasks={this.props.subtasks}

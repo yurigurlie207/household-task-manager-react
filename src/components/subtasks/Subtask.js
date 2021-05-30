@@ -7,6 +7,7 @@ class Subtask extends Component {
     let checked = selectList.querySelectorAll(':checked');
     let selectedUsers = [...checked].map(option => option.dataset.userId);
     this.props.assign(selectedUsers,this.props.subtask.id);
+    if (selectedUsers.length > 0) { event.target.parentElement.remove()}
   }
 
   render() {
