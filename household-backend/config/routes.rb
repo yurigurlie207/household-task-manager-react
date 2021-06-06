@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :user_tasks
   resources :subtasks, :only => [:index]
+  resources :tasks, :only => [:index]
   resources :users,  :only => [:index]
 
 

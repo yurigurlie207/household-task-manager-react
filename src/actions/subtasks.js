@@ -96,3 +96,24 @@ export function fetchTasks() {
           console.log(error)});
   };
 }
+
+export function createSubtasks(title, taskID) {
+    
+  return (dispatch) => {
+  dispatch({ type: 'CREATE_SUBTASK' });
+  fetch('http://127.0.0.1:3000/subtasks', {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+              "title": title,
+              "task_id": taskID
+              })
+        })
+        .catch(function(error) {
+        console.log(error)});
+
+    };
+}

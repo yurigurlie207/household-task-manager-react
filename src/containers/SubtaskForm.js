@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { fetchTasks } from '../actions/subtasks'
 
 class SubtaskForm extends Component {
+
+
   state = {
    title: "",
     task: ""
@@ -14,7 +16,10 @@ class SubtaskForm extends Component {
         <label>Subtask Title:</label>
         <input type="text" name="title" value={this.state.title} />
          <label>Assign to Task:</label>
-        <input type="text" name="task" value={this.state.task} />
+         <select multiple>
+            {taskList}
+          </select>
+          <button class="assign" onClick={(event) => this.handleCreateClick(event)}>Create Subtask</button>
       </form>
     )
   }
