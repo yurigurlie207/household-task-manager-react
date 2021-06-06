@@ -84,3 +84,16 @@ export function fetchSubtasks() {
 
 
 
+  export function fetchTasks() {
+    return (dispatch) => {
+      dispatch({ type: 'LOADING_TASKS' });
+      fetch('http://127.0.0.1:3000/tasks')
+        .then(response => response.json())
+        .then(function(results) {
+          let tasks = results.data
+          return dispatch({ type: 'ADD_TASKS', tasks })
+        }
+          ).catch(function(error) {
+            console.log(error)});
+    };
+  }

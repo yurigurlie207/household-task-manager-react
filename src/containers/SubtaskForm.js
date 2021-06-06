@@ -26,10 +26,10 @@ const mapDispatchToProps = dispatch => ({
   })
   
 const mapStateToProps = state => {
-return {
-    subtasks: state.tasks,
-    requesting: state.requesting
-}
+    return {
+        subtasks: state.tasks,
+        requesting: state.requesting
+    }
 }
   
   export default connect(mapStateToProps, mapDispatchToProps)(SubtaskForm)
