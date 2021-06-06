@@ -18,6 +18,14 @@ class SubtaskForm extends Component {
   }
  
   render() {
+    let taskList = []
+    
+    if (this.props.tasks){
+      taskList  = this.props.tasks.map( task => {
+        return (<option  value={task.attributes.title} data-user-id={task.id}>{task.attributes.title}</option>) 
+      });
+    }
+
     return (
       <form onClick={(event) => this.handleOnLoad(event)}>
         <label>Subtask Title:</label>
