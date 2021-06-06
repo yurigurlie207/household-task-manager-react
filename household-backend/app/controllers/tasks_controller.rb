@@ -1,6 +1,6 @@
 class TasksController < ApplicationController 
     def index
-       tasks = Tassk.all
+       tasks = Task.all
        render json: TaskSerializer.new(tasks)
     end
 end

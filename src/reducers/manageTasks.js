@@ -1,5 +1,5 @@
 export default function manageTasks(state = {
-  subtasks: [], users: [], usertasks: [], requesting: false 
+  subtasks: [], tasks: [], users: [], usertasks: [], requesting: false 
   }, action) {
     switch (action.type) {
 
@@ -20,7 +20,6 @@ export default function manageTasks(state = {
         case 'LOADING_TASKS':
           return {
             ...state,
-       
           requesting: true
           }
      

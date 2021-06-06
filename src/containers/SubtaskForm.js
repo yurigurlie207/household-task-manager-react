@@ -32,4 +32,5 @@ const mapStateToProps = state => {
     }
 }
   
-  export default connect(mapStateToProps, mapDispatchToProps)(SubtaskForm)
+
+export default connect(mapStateToProps, mapDispatchToProps)(SubtaskForm)
