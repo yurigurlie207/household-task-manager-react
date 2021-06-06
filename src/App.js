@@ -5,8 +5,8 @@ import {
 } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import Home from './components/Home';
-import Dashboard from './containers/Dashboard';
-import SubtaskForm from './components/subtasks/SubtaskForm';
+import Dashboard from './components/Dashboard';
+import SubtaskForm from './containers/SubtaskForm';
 
 function App() {
   return (

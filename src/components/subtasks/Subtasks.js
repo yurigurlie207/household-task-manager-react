@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Subtask from './Subtask';
-import { fetchTasks } from '../actions/subtasks'
+
 
 class Subtasks extends Component {
 

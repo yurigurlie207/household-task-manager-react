@@ -42,7 +42,7 @@ export function fetchSubtasks() {
 
 
   export function deleteUsertasks(usertaskID) {
-    // console.log(usertaskID)
+    console.log(usertaskID)
     let delete_url = 'http://127.0.0.1:3000/user_tasks/' + usertaskID;
 
     return (dispatch) => {
@@ -53,7 +53,7 @@ export function fetchSubtasks() {
                   'Content-Type': 'application/json',
                   'Accept': 'application/json'
               }
-          }).then( ()=> {   return dispatch({ type: 'ADD_USERTASKS', usertaskID: usertaskID })}
+          }).then( ()=> {   return dispatch({ type: 'DELETE_USERTASKS', usertaskID: usertaskID })}
           )
           .catch(function(error) {
           console.log(error)});
@@ -98,21 +98,23 @@ export function fetchTasks() {
 }
 
 export function createSubtasks(title, taskID) { 
-  return (dispatch) => {
-    dispatch({ type: 'CREATE_SUBTASK' });
-    fetch('http://127.0.0.1:3000/subtasks', {
-              method: "POST",
-              headers: {
-                  'Content-Type': 'application/json',
-                  'Accept': 'application/json'
-              },
-              body: JSON.stringify({
-                "title": title,
-                "task_id": taskID
-                })
-          })
-          .catch(function(error) {
-          console.log(error)});
+  console.log(title)
+  console.log(taskID)
+  // return (dispatch) => {
+  //   dispatch({ type: 'CREATE_SUBTASK' });
+  //   fetch('http://127.0.0.1:3000/subtasks', {
+  //             method: "POST",
+  //             headers: {
+  //                 'Content-Type': 'application/json',
+  //                 'Accept': 'application/json'
+  //             },
+  //             body: JSON.stringify({
+  //               "title": title,
+  //               "task_id": taskID
+  //               })
+  //         })
+  //         .catch(function(error) {
+  //         console.log(error)});
 
-    };
+  //   };
 }

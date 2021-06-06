@@ -82,6 +82,12 @@ div.user {
 
 }
 
+ .subtaskform {
+  /* background-color: #eeeeee; */
+  margin: 30px
+
+}
+
 div.subtask {
   /* grid-column: span 3; */
   grid-row: span 2;
