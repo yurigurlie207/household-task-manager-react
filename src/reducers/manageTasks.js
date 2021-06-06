@@ -17,6 +17,20 @@ export default function manageTasks(state = {
           requesting: false
         }
 
+        case 'LOADING_TASKS':
+          return {
+            ...state,
+       
+          requesting: true
+          }
+     
+        case 'ADD_TASKS':
+          return {
+            ...state,
+            tasks: action.tasks,
+            requesting: false
+          }
+
         case 'LOADING_USERS':
           return {
             ...state,

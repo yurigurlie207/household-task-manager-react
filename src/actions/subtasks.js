@@ -83,7 +83,6 @@ export function fetchSubtasks() {
   }
 
 
-
   export function fetchTasks() {
     return (dispatch) => {
       dispatch({ type: 'LOADING_TASKS' });
