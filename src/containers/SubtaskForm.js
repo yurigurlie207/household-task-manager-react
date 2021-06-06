@@ -4,6 +4,13 @@ import { fetchTasks } from '../actions/subtasks'
 
 class SubtaskForm extends Component {
 
+  handleOnLoad() {
+    this.props.fetchTasks();
+  }
+
+  handleCreateClick() {
+    this.props.createSubtasks();
+  }
 
   state = {
    title: "",
@@ -12,7 +19,7 @@ class SubtaskForm extends Component {
  
   render() {
     return (
-      <form>
+      <form onClick={(event) => this.handleOnLoad(event)}>
         <label>Subtask Title:</label>
         <input type="text" name="title" value={this.state.title} />
          <label>Assign to Task:</label>
@@ -28,11 +35,12 @@ class SubtaskForm extends Component {
 
 const mapDispatchToProps = dispatch => ({
     fetchTasks: () => dispatch(fetchTasks()),
+    createSubtasks: (title, taskID) => dispatch(createSubtasks(title,taskID)),
   })
   
 const mapStateToProps = state => {
     return {
-        subtasks: state.tasks,
+        tasks: state.tasks,
         requesting: state.requesting
     }
 }
