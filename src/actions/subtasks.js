@@ -98,23 +98,21 @@ export function fetchTasks() {
 }
 
 export function createSubtasks(title, taskID) { 
-  console.log(title)
-  console.log(taskID)
-  // return (dispatch) => {
-  //   dispatch({ type: 'CREATE_SUBTASK' });
-  //   fetch('http://127.0.0.1:3000/subtasks', {
-  //             method: "POST",
-  //             headers: {
-  //                 'Content-Type': 'application/json',
-  //                 'Accept': 'application/json'
-  //             },
-  //             body: JSON.stringify({
-  //               "title": title,
-  //               "task_id": taskID
-  //               })
-  //         })
-  //         .catch(function(error) {
-  //         console.log(error)});
+  return (dispatch) => {
+    dispatch({ type: 'CREATE_SUBTASK' });
+    fetch('http://127.0.0.1:3000/subtasks', {
+              method: "POST",
+              headers: {
+                  'Content-Type': 'application/json',
+                  'Accept': 'application/json'
+              },
+              body: JSON.stringify({
+                "title": title,
+                "task_id": taskID
+                })
+          })
+          .catch(function(error) {
+          console.log(error)});
 
-  //   };
+    };
 }
