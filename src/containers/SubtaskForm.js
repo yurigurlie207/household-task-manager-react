@@ -25,11 +25,11 @@ class SubtaskForm extends Component {
       task: event.target.value
     }) 
 
-    let title = event.target.parentElement.querySelector('input').value;
-    let taskID = event.target.parentElement.querySelector('select').value;
+    // let title = event.target.parentElement.querySelector('input').value;
+    // let taskID = event.target.parentElement.querySelector('select').value;
     // console.log(title)
     // console.log(taskID)
-    this.props.createSubtasks(title, taskID);
+    // this.props.createSubtasks(title, taskID);
 
   }
 
