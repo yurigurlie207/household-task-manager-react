@@ -20,17 +20,11 @@ class SubtaskForm extends Component {
       title: event.target.value
     })
   }
+
   handleTaskChange = event => {
     this.setState({
       task: event.target.value
-    }) 
-
-    // let title = event.target.parentElement.querySelector('input').value;
-    // let taskID = event.target.parentElement.querySelector('select').value;
-    // console.log(title)
-    // console.log(taskID)
-    // this.props.createSubtasks(title, taskID);
-
+    })
   }
 
   state = {

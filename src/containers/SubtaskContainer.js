@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+ import React, { Component } from 'react';
 import Subtasks from '../components/subtasks/Subtasks'
 import { connect } from 'react-redux'
 import { fetchSubtasks } from '../actions/subtasks'
