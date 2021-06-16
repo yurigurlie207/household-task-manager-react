@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Select from 'react-select'
 
 class Subtask extends Component {
 
@@ -16,13 +17,22 @@ class Subtask extends Component {
   // https://www.robinwieruch.de/react-remove-item-from-list
 
   render() {
+
+    const options = [
+      { value: 'chocolate', label: 'Chocolate' },
+      { value: 'strawberry', label: 'Strawberry' },
+      { value: 'vanilla', label: 'Vanilla' }
+    ]
+
     let userList = []
     
     if (this.props.users){
       userList  = this.props.users.map( user => {
-        return (<option  value={user.attributes.username} data-user-id={user.id}>{user.attributes.username}</option>) 
+        return { value: user.id , label: user.attributes.username }
       });
     }
+
+    // (<option  value={user.attributes.username} data-user-id={user.id}>{user.attributes.username}</option>) 
 
     const { subtask } = this.props;
     return (
@@ -30,9 +40,11 @@ class Subtask extends Component {
         <li class="subtask">
           {subtask.attributes.title}
            ::: 
-           <select multiple>
+
+           <Select options={userList} />
+           {/* <select multiple>
             {userList}
-          </select>
+          </select> */}
           :::
           <button class="assign" onClick={this.handleAssignClick}>Assign User(s)</button>
         </li>
