@@ -6,7 +6,7 @@ class Subtasks extends Component {
 
   render() {
  
-    const  subtasks = this.props.subtasks || []
+    const subtasks = this.props.subtasks || []
     const subtaskList = subtasks.map(subtask => {
       return (
         <Subtask
@@ -27,3 +27,4 @@ class Subtasks extends Component {
 };
 
 export default Subtasks;
+

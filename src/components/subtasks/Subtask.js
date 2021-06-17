@@ -19,6 +19,10 @@ class Subtask extends Component {
 
     this.props.assign(this.state.selectedUsers,this.props.subtask.id);
     if (this.state.selectedUsers.length > 0) { event.target.parentElement.remove()}
+
+    // const newSubtaskList = this.props.subtaskList.filter((subtask) => subtask.id !== this.props.subtask.id);
+
+    // setSubtaskList(newSubtaskList);
   }
 
   handleSelectChange = e => {
@@ -27,6 +31,7 @@ class Subtask extends Component {
     this.setState({ selectedUsers: values}) ;
     // console.log("HM");
     // console.log(this.state.selectedUsers);
+  
   };
 
   //references to refactor above code
