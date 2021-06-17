@@ -39,7 +39,7 @@ class SubtaskContainer extends Component {
       
             <h1>Unassigned Subtasks</h1>
             <Subtasks
-              subtaskList={subtaskList}
+              subtasks={subtaskList}
               setSubtaskList={setSubtaskList}
               users={this.props.users}
               assign={this.props.assignUsertasks}

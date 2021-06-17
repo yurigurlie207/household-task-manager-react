@@ -14,6 +14,7 @@ class Subtasks extends Component {
             subtask={subtask}
             users={this.props.users}
             assign={this.props.assign}
+            setSubtaskList={this.props.setSubtaskList}
         />
       )
     });

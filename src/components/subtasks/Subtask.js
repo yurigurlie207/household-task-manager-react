@@ -18,11 +18,15 @@ class Subtask extends Component {
     // let selectedUsers = [...checked].map(option => option.dataset.userId);
 
     this.props.assign(this.state.selectedUsers,this.props.subtask.id);
-    if (this.state.selectedUsers.length > 0) { event.target.parentElement.remove()}
+    
+    if (this.state.selectedUsers.length > 0) 
+    { 
+      //event.target.parentElement.remove()
+      const newSubtaskList = this.props.subtaskList.filter((subtask) => subtask.id !== this.props.subtask.id);
+      this.props.setSubtaskList(newSubtaskList);
+    
+    }
 
-    // const newSubtaskList = this.props.subtaskList.filter((subtask) => subtask.id !== this.props.subtask.id);
-
-    // setSubtaskList(newSubtaskList);
   }
 
   handleSelectChange = e => {
