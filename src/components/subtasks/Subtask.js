@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Select from 'react-select'
 
+
+
 class Subtask extends Component {
   constructor(props) {
     super(props);
@@ -22,8 +24,7 @@ class Subtask extends Component {
     if (this.state.selectedUsers.length > 0) 
     { 
       //event.target.parentElement.remove()
-      const newSubtaskList = this.props.subtask.filter((subtask) => subtask.id !== this.props.subtask.id);
-      this.props.setSubtaskList(newSubtaskList);
+      this.props.remove(this.props.subtask.id);
     
     }
 

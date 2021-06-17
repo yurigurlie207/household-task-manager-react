@@ -1,12 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Subtask from './Subtask';
 
 
-class Subtasks extends Component {
+const Subtasks = () => {
 
-  render() {
- 
-    const subtasks = this.props.subtasks || []
+  const [subtasks, setSubtaskList] = React.useState(this.props.subtasks || []);
+
+  function removeSubtask(id) {
+    const newSubtaskList = subtasks.filter((subtask) => subtask.id !== id);
+    setSubtaskList(newSubtaskList);
+  }
+
     const subtaskList = subtasks.map(subtask => {
       return (
         <Subtask
@@ -15,7 +19,7 @@ class Subtasks extends Component {
             subtasks={subtasks}
             users={this.props.users}
             assign={this.props.assign}
-            setSubtaskList={this.props.setSubtaskList}
+            remove={removeSubtask}
         />
       )
     });
@@ -25,8 +29,7 @@ class Subtasks extends Component {
         {subtaskList}
       </ol>
     );
-  }
-};
+    };
 
 export default Subtasks;
 

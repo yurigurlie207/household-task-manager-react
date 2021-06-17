@@ -26,10 +26,6 @@ class SubtaskContainer extends Component {
     if (this.state.requesting === true) { status = "requesting..."}
     else {status = "complete"}
 
-    const initialSubtaskList = this.props.subtasks
-    const [subtaskList, setSubtaskList] = React.useState(initialSubtaskList)
-    
-
     return (
       <div class="subtask">
         <div class="refresh"> 
@@ -39,8 +35,7 @@ class SubtaskContainer extends Component {
       
             <h1>Unassigned Subtasks</h1>
             <Subtasks
-              subtasks={subtaskList}
-              setSubtaskList={setSubtaskList}
+              subtasks={this.props.subtasks}
               users={this.props.users}
               assign={this.props.assignUsertasks}
             />
