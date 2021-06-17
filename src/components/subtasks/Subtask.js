@@ -2,27 +2,38 @@ import React, { Component } from 'react';
 import Select from 'react-select'
 
 class Subtask extends Component {
+  constructor(props) {
+    super(props);
 
-  handleAssignClick = (event) => {
-    console.log(this) 
-    let selectList = event.target.previousElementSibling;
-    let checked = selectList.querySelectorAll(':checked');
-    let selectedUsers = [...checked].map(option => option.dataset.userId);
-    this.props.assign(selectedUsers,this.props.subtask.id);
-    if (selectedUsers.length > 0) { event.target.parentElement.remove()}
+    this.state = {
+      selectedUsers: []
+    }
+  
   }
+  handleAssignClick = (event) => {
+    console.log(this.state.selectedUsers)
+    // console.log(this.state.selectedUsers) 
+    // let selectList = event.target.previousElementSibling;
+    // let checked = selectList.querySelectorAll(':checked');
+    // let selectedUsers = [...checked].map(option => option.dataset.userId);
+
+    this.props.assign(this.state.selectedUsers,this.props.subtask.id);
+    if (this.state.selectedUsers.length > 0) { event.target.parentElement.remove()}
+  }
+
+  handleSelectChange = e => {
+    let values = e.map(x => x.value)
+    // console.log(values)
+    this.setState({ selectedUsers: values}) ;
+    // console.log("HM");
+    // console.log(this.state.selectedUsers);
+  };
 
   //references to refactor above code
   // https://react-select.com/home
   // https://www.robinwieruch.de/react-remove-item-from-list
 
   render() {
-
-    const options = [
-      { value: 'chocolate', label: 'Chocolate' },
-      { value: 'strawberry', label: 'Strawberry' },
-      { value: 'vanilla', label: 'Vanilla' }
-    ]
 
     let userList = []
     
@@ -41,7 +52,7 @@ class Subtask extends Component {
           {subtask.attributes.title}
            ::: 
 
-           <Select options={userList} />
+           <Select isMulti options={userList} onChange={this.handleSelectChange} />
            {/* <select multiple>
             {userList}
           </select> */}
