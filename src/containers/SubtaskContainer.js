@@ -10,13 +10,19 @@ class SubtaskContainer extends Component {
   handleOnClick() {
     this.props.fetchSubtasks();
     this.props.fetchUsers();
+    this.setState({subtasks: this.props.subtasks})
+  }
+
+  handleRemove(id) {
+    const newSubtaskList = this.state.subtasks.filter((subtask) => subtask.id !== id); 
+    this.setState({subtasks: newSubtaskList})
   }
 
   constructor(props) {
     super(props);
 
     this.state = {
-        requesting: false
+        requesting: false,
       }
   };
 
@@ -35,9 +41,10 @@ class SubtaskContainer extends Component {
       
             <h1>Unassigned Subtasks</h1>
             <Subtasks
-              subtasks={this.props.subtasks}
+              subtasks={this.state.subtasks}
               users={this.props.users}
               assign={this.props.assignUsertasks}
+              remove={this.handleRemove}
             />
        
 

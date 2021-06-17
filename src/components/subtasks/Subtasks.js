@@ -1,25 +1,29 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Subtask from './Subtask';
 
 
-const Subtasks = () => {
+class Subtasks extends Component {
 
-  const [subtasks, setSubtaskList] = React.useState(this.props.subtasks || []);
+  constructor(props) {
+    super(props);
 
-  function removeSubtask(id) {
-    const newSubtaskList = subtasks.filter((subtask) => subtask.id !== id);
-    setSubtaskList(newSubtaskList);
+    this.state = {
+      selectedUsers: []
+
+    }
   }
 
+  render() {
+
+    const subtasks = this.props.subtasks || []
     const subtaskList = subtasks.map(subtask => {
       return (
         <Subtask
             key={subtask.id}
             subtask={subtask}
-            subtasks={subtasks}
             users={this.props.users}
             assign={this.props.assign}
-            remove={removeSubtask}
+            remove={this.props.remove}
         />
       )
     });
@@ -29,7 +33,7 @@ const Subtasks = () => {
         {subtaskList}
       </ol>
     );
-    };
+   }
+  };
 
 export default Subtasks;
-

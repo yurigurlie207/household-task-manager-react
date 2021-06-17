@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Select from 'react-select'
 
 
-
 class Subtask extends Component {
   constructor(props) {
     super(props);
