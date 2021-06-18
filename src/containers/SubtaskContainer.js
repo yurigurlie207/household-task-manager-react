@@ -13,7 +13,8 @@ class SubtaskContainer extends Component {
     this.setState({subtasks: this.props.subtasks})
   }
 
-  handleRemove(id) {
+  handleRemove = (id) => {
+    console.log(this.props.subtasks)
     const newSubtaskList = this.state.subtasks.filter((subtask) => subtask.id !== id); 
     this.setState({subtasks: newSubtaskList})
   }
