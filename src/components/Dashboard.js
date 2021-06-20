@@ -1,11 +1,9 @@
 import React from 'react';
-import SubtaskContainer from '../containers/SubtaskContainer';
-import UserContainer from '../containers/UserContainer';
+import MainContainer from '../containers/MainContainer';
 
 const Dashboard = (props) =>
-  <div class="main">
-    <SubtaskContainer />
-    <UserContainer />
-  </div>;
+    <div>  
+    <MainContainer />
+    </div>
 
 export default Dashboard;
