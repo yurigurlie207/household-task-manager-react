@@ -11,6 +11,13 @@ class Subtask extends Component {
     }
   
   }
+  
+  // componentDidUpdate(prevProps) {
+  //   console.log("-")
+  //   console.log(prevProps)
+  //   console.log(this.state.selectedUsers)
+  // }
+
   handleAssignClick = (event) => {
     console.log(this.state.selectedUsers)
     // console.log(this.state.selectedUsers) 
@@ -33,9 +40,9 @@ class Subtask extends Component {
     let values = e.map(x => x.value)
     // console.log(values)
     this.setState({ selectedUsers: values}) ;
-    // console.log("HM");
-    // console.log(this.state.selectedUsers);
-  
+    console.log("HM");
+    console.log(this.state.selectedUsers);
+    
   };
 
   //references to refactor above code

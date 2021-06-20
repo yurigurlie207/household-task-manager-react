@@ -8,6 +8,11 @@ import { deleteUsertasks } from '../actions/subtasks'
 
 class UserContainer extends Component {
 
+  componentDidMount(){
+    this.props.fetchUsers();
+    this.props.fetchUsertasks();
+  }
+ 
   handleOnClick() {
     this.props.fetchUsers();
     this.props.fetchUsertasks();

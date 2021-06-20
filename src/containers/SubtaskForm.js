@@ -5,10 +5,10 @@ import { createSubtasks } from '../actions/subtasks'
 
 class SubtaskForm extends Component {
 
-  handleOnLoad() {
+  componentDidMount(){
     this.props.fetchTasks();
   }
-
+ 
   handleCreateClick(event) {
     let title = event.target.parentElement.querySelector('input').value;
     let taskID = event.target.parentElement.querySelector('select').value;
@@ -43,7 +43,7 @@ class SubtaskForm extends Component {
 
     return (
       <div class="subtaskform">
-      <form  onClick={(event) => this.handleOnLoad(event)}>
+      <form>
         <label>Subtask Title:</label>
         <input type="text" name="title" onChange={event => this.handleTitleChange(event)} value={this.state.title} /><br></br>
          <label>Assign to Task:</label>

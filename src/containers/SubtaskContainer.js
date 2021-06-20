@@ -1,4 +1,4 @@
- import React, { Component } from 'react';
+import React, { Component } from 'react';
 import Subtasks from '../components/subtasks/Subtasks'
 import { connect } from 'react-redux'
 import { fetchSubtasks } from '../actions/subtasks'
@@ -7,10 +7,27 @@ import { fetchUsers } from '../actions/subtasks'
 
 class SubtaskContainer extends Component {
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+        requesting: false,
+        subtasks: this.props.subtasks
+      }
+  };
+
+  componentDidMount(){
+    this.props.fetchSubtasks();
+    this.props.fetchUsers();
+  }
+
+  // https://reactjs.org/docs/react-component.html
+
   handleOnClick() {
     this.props.fetchSubtasks();
     this.props.fetchUsers();
-    this.setState({subtasks: this.props.subtasks})
+    // debugger
+    //this.setState({subtasks: this.props.subtasks})
   }
 
   handleRemove = (id) => {
@@ -19,13 +36,6 @@ class SubtaskContainer extends Component {
     this.setState({subtasks: newSubtaskList})
   }
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-        requesting: false,
-      }
-  };
 
   render() {
     
@@ -34,8 +44,8 @@ class SubtaskContainer extends Component {
     else {status = "complete"}
 
     return (
-      <div class="subtask">
-        <div class="refresh"> 
+      <div className="subtask">
+        <div className="refresh"> 
           <button onClick={(event) => this.handleOnClick(event)}> Refresh Unassigned Subtasks </button>   
           <p>Request Status: {status}</p>
        </div>
