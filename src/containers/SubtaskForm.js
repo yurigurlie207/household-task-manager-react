@@ -11,6 +11,7 @@ class SubtaskForm extends Component {
   componentDidMount(){
     this.props.fetchTasks();
   }
+  
   constructor(props) {
     super(props);
 
@@ -25,14 +26,12 @@ class SubtaskForm extends Component {
   }
 
   handleTitleChange = (event) => {
-    console.log(event.target.value)
     this.setState({
       title: event.target.value
     })
   }
 
   handleTaskChange = (event) => {
-    console.log(event.value)
     this.setState({
       taskID: event.value
     })

@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
 import Subtasks from '../components/subtasks/Subtasks'
 import Users from '../components/users/Users'
-import { fetchSubtasks, assignUsertasks, fetchUsers, fetchUsertasks, deleteUsertasks } from '../actions/subtasks'
 
 class MainContainer extends Component {
+
     constructor(props) {
         super(props);
     
@@ -16,23 +15,8 @@ class MainContainer extends Component {
           }
       };
   
-    componentDidMount() {
-        this.props.fetchSubtasks();
-        this.props.fetchUsers();
-        this.props.fetchUsertasks();
-
-    }
-
-    handleOnClick() {
-        this.props.fetchSubtasks();
-        this.props.fetchUsers();
-        this.props.fetchUsertasks();
-    }
-   
-
     handleRemove = (id) => {
         this.props.deleteUsertasks();
-        // console.log(this.props.subtasks)
         const newSubtaskList = this.state.subtasks.filter((subtask) => subtask.id !== id); 
         this.setState({subtasks: newSubtaskList})
     }
@@ -80,25 +64,7 @@ class MainContainer extends Component {
 
 }
 
-
-const mapDispatchToProps = dispatch => ({
-    fetchSubtasks: () => dispatch(fetchSubtasks()),
-    fetchUsers: () => dispatch(fetchUsers()),
-    fetchUsertasks: () => dispatch(fetchUsertasks()),
-    assignUsertasks: (userIDs, subtaskID) => dispatch(assignUsertasks(userIDs,subtaskID)),
-    deleteUsertasks: (usertaskID) => dispatch(deleteUsertasks(usertaskID))
-  })
   
-  const mapStateToProps = state => {
-    return {
-      subtasks: state.subtasks,
-      users: state.users,
-      usertasks: state.usertasks,
-      requesting: state.requesting
-    }
-  }
-
-  
-export default connect(mapStateToProps, mapDispatchToProps)(MainContainer)
+export default MainContainer
 
 // https://reactjs.org/docs/react-component.html
