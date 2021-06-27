@@ -13,6 +13,7 @@ class Subtask extends Component {
 
   handleAssignClick = (event) => {
     this.props.assign(this.state.selectedUsers,this.props.subtask.id);
+    
     if (this.state.selectedUsers.length > 0) 
     { 
       this.props.remove(this.props.subtask.id);
