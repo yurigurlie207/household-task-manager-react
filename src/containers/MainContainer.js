@@ -31,11 +31,7 @@ class MainContainer extends Component {
         return (
             <div className="main">
                 <div className="subtask">
-                    <div className="refresh"> 
-                    <button onClick={(event) => this.handleOnClick(event)}> Refresh </button>   
-                    <p>Request Status: {status}</p>
-                </div>
-                
+                  
                         <h1>Unassigned Subtasks</h1>
                         <Subtasks
                         subtasks={this.state.subtasks}
@@ -45,11 +41,7 @@ class MainContainer extends Component {
                         />
                 </div>
                 <div className="users">
-                    <div className="refresh"> 
-                        <button onClick={(event) => this.handleOnClick(event)}> Refresh </button>   
-                        <p>Request Status: {status}</p>
-                    </div>
-            
+                  
         
                     <h1>User Assignments</h1>
                         <Users
