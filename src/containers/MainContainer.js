@@ -15,11 +15,12 @@ class MainContainer extends Component {
             users: this.props.users
           }
       };
-
+  
     componentDidMount() {
         this.props.fetchSubtasks();
         this.props.fetchUsers();
         this.props.fetchUsertasks();
+
     }
 
     handleOnClick() {
@@ -27,9 +28,11 @@ class MainContainer extends Component {
         this.props.fetchUsers();
         this.props.fetchUsertasks();
     }
+   
 
     handleRemove = (id) => {
-        console.log(this.props.subtasks)
+        this.props.deleteUsertasks();
+        // console.log(this.props.subtasks)
         const newSubtaskList = this.state.subtasks.filter((subtask) => subtask.id !== id); 
         this.setState({subtasks: newSubtaskList})
     }

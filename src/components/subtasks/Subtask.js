@@ -40,14 +40,14 @@ class Subtask extends Component {
     const { subtask } = this.props;
     return (
       <div>
-        <li class="subtask">
+        <li key="{this.props.key}" className="subtask">
           {subtask.attributes.title}
            ::: 
 
            <Select isMulti options={userList} onChange={this.handleSelectChange} />
      
           :::
-          <button class="assign" onClick={this.handleAssignClick}>Assign User(s)</button>
+          <button className="assign" onClick={this.handleAssignClick}>Assign User(s)</button>
         </li>
       </div>
     );

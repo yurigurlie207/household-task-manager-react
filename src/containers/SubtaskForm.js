@@ -7,6 +7,10 @@ import { createSubtasks } from '../actions/subtasks'
 
 class SubtaskForm extends Component {
 
+
+  componentDidMount(){
+    this.props.fetchTasks();
+  }
   constructor(props) {
     super(props);
 
@@ -15,27 +19,24 @@ class SubtaskForm extends Component {
       taskID: null
     }
   };
-  componentDidMount(){
-    this.props.fetchTasks();
-  }
  
   handleCreateClick = () => {
     this.props.createSubtasks(this.state.title, this.state.taskID);
   }
 
   handleTitleChange = (event) => {
+    console.log(event.target.value)
     this.setState({
-      title: event.value
+      title: event.target.value
     })
   }
 
-  handleTaskChange = event => {
+  handleTaskChange = (event) => {
+    console.log(event.value)
     this.setState({
       taskID: event.value
     })
   }
-
- 
 
   render() {
     let taskList = []
@@ -45,16 +46,16 @@ class SubtaskForm extends Component {
         return { value: task.id, label: task.attributes.title }
       });
     }
-    const defaultOption = taskList[0];
+  
 
     return (
-      <div class="subtaskform">
+      <div className="subtaskform">
       <form>
         <label>Subtask Title:</label>
         <input type="text" name="title" onChange={this.handleTitleChange} value={this.state.title} /><br></br>
          <label>Assign to Task:</label>
-          <Dropdown options={taskList} onChange={this.handleTaskChange} value={defaultOption} placeholder="Select an option" /><br></br>
-          <button onClick={this.handleCreateClick()}>Create Subtask</button>
+          <Dropdown options={taskList} onChange={this.handleTaskChange} value={this.state.taskID} /><br></br>
+          <button onClick={this.handleCreateClick}>Create Subtask</button>
       </form>
       </div>
     )
