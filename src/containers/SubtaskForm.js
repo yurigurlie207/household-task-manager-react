@@ -5,6 +5,15 @@ import { createSubtasks } from '../actions/subtasks'
 
 class SubtaskForm extends Component {
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      title: "",
+      taskID: null
+    }
+  };
+
   componentDidMount(){
     this.props.fetchTasks();
   }
@@ -27,11 +36,6 @@ class SubtaskForm extends Component {
     })
   }
 
-  state = {
-   title: "",
-    taskID: null
-  }
- 
   render() {
     let taskList = []
     
