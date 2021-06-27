@@ -50,7 +50,7 @@ class SubtaskForm extends Component {
         <label>Subtask Title:</label>
         <input type="text" name="title" onChange={event => this.handleTitleChange(event)} value={this.state.title} /><br></br>
          <label>Assign to Task:</label>
-           <Dropdown options={options} onChange={this.handleTaskChange()} placeholder="Select an option" />;
+           <Dropdown options={taskList} onChange={this.handleTaskChange()} placeholder="Select an option" />;
           <button onClick={(event) => this.handleCreateClick(event)}>Create Subtask</button>
       </form>
       </div>
