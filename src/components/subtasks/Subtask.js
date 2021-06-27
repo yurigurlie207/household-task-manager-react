@@ -1,53 +1,30 @@
 import React, { Component } from 'react';
 import Select from 'react-select'
 
-
 class Subtask extends Component {
+
   constructor(props) {
     super(props);
 
     this.state = {
       selectedUsers: []
     }
-  
   }
-  
-  // componentDidUpdate(prevProps) {
-  //   console.log("-")
-  //   console.log(prevProps)
-  //   console.log(this.state.selectedUsers)
-  // }
 
   handleAssignClick = (event) => {
-    console.log(this.state.selectedUsers)
-    // console.log(this.state.selectedUsers) 
-    // let selectList = event.target.previousElementSibling;
-    // let checked = selectList.querySelectorAll(':checked');
-    // let selectedUsers = [...checked].map(option => option.dataset.userId);
-
     this.props.assign(this.state.selectedUsers,this.props.subtask.id);
-
     if (this.state.selectedUsers.length > 0) 
     { 
-      //event.target.parentElement.remove()
       this.props.remove(this.props.subtask.id);
-    
     }
-
   }
 
   handleSelectChange = e => {
     let values = e.map(x => x.value)
-    // console.log(values)
     this.setState({ selectedUsers: values}) ;
-    console.log("HM");
-    console.log(this.state.selectedUsers);
-    
   };
 
-  //references to refactor above code
   // https://react-select.com/home
-  // https://www.robinwieruch.de/react-remove-item-from-list
 
   render() {
 
@@ -59,8 +36,6 @@ class Subtask extends Component {
       });
     }
 
-    // (<option  value={user.attributes.username} data-user-id={user.id}>{user.attributes.username}</option>) 
-
     const { subtask } = this.props;
     return (
       <div>
@@ -69,9 +44,7 @@ class Subtask extends Component {
            ::: 
 
            <Select isMulti options={userList} onChange={this.handleSelectChange} />
-           {/* <select multiple>
-            {userList}
-          </select> */}
+     
           :::
           <button class="assign" onClick={this.handleAssignClick}>Assign User(s)</button>
         </li>

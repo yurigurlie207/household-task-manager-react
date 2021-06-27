@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Select from 'react-select'
+{/* <Select isMulti options={userList} onChange={this.handleSelectChange} /> */}
 import { connect } from 'react-redux'
 import { fetchTasks } from '../actions/subtasks'
 import { createSubtasks } from '../actions/subtasks'
