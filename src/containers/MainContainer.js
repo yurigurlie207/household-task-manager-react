@@ -5,17 +5,16 @@ import Users from '../components/users/Users'
 import { fetchSubtasks, assignUsertasks, fetchUsers, fetchUsertasks, deleteUsertasks } from '../actions/subtasks'
 
 class MainContainer extends Component {
-
     constructor(props) {
-      super(props);
-  
-      this.state = {
-          requesting: false,
-          subtasks: this.props.subtasks,
-          usertasks: this.props.usertasks,
-          users: this.props.users
-        }
-    };
+        super(props);
+    
+        this.state = {
+            requesting: false,
+            subtasks: this.props.subtasks,
+            usertasks: this.props.usertasks,
+            users: this.props.users
+          }
+      };
 
     componentDidMount() {
         this.props.fetchSubtasks();
@@ -34,7 +33,8 @@ class MainContainer extends Component {
         const newSubtaskList = this.state.subtasks.filter((subtask) => subtask.id !== id); 
         this.setState({subtasks: newSubtaskList})
     }
-    
+
+ 
     render() {
     
         let status = ""
