@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import Subtask from './Subtask';
 import { connect } from 'react-redux';
+import {fetchSubtasks} from '../../actions/subtasks'
+
 
 
 class Subtasks extends Component {
+
+  componentDidMount() {
+    this.props.fetchSubtasks();
+}
 
   constructor(props) {
     super(props);
@@ -16,10 +22,7 @@ class Subtasks extends Component {
 
   render() {
 
-    console.log("HMMM")
-    console.log(this.props.users)
-    console.log(this.state.users)
-
+  
     const subtasks = this.state.subtasks || []
     const subtaskList = subtasks.map(subtask => {
       return (
@@ -41,6 +44,9 @@ class Subtasks extends Component {
    }
   };
 
+  const mapDispatchToProps = dispatch => ({
+    fetchSubtasks: () => dispatch(fetchSubtasks())
+  })
 
   const mapStateToProps = state => {
     return {
@@ -49,6 +55,6 @@ class Subtasks extends Component {
     }
   }
 
-export default connect(mapStateToProps)(Subtasks)
+export default connect(mapStateToProps,mapDispatchToProps)(Subtasks)
 
 

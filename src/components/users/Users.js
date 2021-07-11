@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import User from './User';
 import { connect } from 'react-redux'
+import {fetchUsers} from '../../actions/subtasks'
 
 class Users extends Component {
+
+  componentDidMount() {
+    this.props.fetchUsers();
+}
 
   constructor(props) {
     super(props);
@@ -38,12 +43,17 @@ class Users extends Component {
   }
 };
 
+
+const mapDispatchToProps = dispatch => ({
+  fetchUsers: () => dispatch(fetchUsers())
+})
+
 const mapStateToProps = state => {
   return {
     users: state.users
   }
 }
 
-export default connect(mapStateToProps)(Users)
+export default connect(mapStateToProps, mapDispatchToProps)(Users)
 
 
