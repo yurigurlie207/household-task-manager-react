@@ -8,7 +8,6 @@ class MainContainer extends Component {
         super(props);
     
         this.state = {
-            requesting: false,
             subtasks: this.props.subtasks,
             // usertasks: this.props.usertasks,
             users: this.props.users
@@ -24,9 +23,6 @@ class MainContainer extends Component {
  
     render() {
     
-        let status = ""
-        if (this.state.requesting === true) { status = "requesting..."}
-        else {status = "complete"}
     
         return (
             <div className="main">

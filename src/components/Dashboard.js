@@ -4,10 +4,7 @@ import { connect } from 'react-redux'
 import { fetchSubtasks, assignUsertasks, fetchUsers, fetchUsertasks, deleteUsertasks } from '../actions/subtasks'
 
 class Dashboard extends Component {
-    constructor(props) {
-        super(props);
-    }
-
+  
     componentDidMount() {
         this.props.fetchSubtasks();
         this.props.fetchUsers();
@@ -29,7 +26,7 @@ class Dashboard extends Component {
             <button onClick={this.handleOnClick}>Refresh with Latest Database Info</button>
         <MainContainer 
             subtasks={this.props.subtasks}
-            users={this.props.users}
+            // users={this.props.users}
             deleteUsertasks={this.props.deleteUsertasks}
             assignUsertasks={this.props.assignUsertasks}
             />
@@ -49,8 +46,8 @@ const mapDispatchToProps = dispatch => ({
   const mapStateToProps = state => {
     return {
       subtasks: state.subtasks,
-      users: state.users,
-      requesting: state.requesting
+      // users: state.users,
+    
     }
   }
 

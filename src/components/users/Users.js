@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
 import User from './User';
+import { connect } from 'react-redux'
 
 class Users extends Component {
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+        users: this.props.users
+      }
+  };
   render() {
 
     let userList = [];
@@ -15,7 +23,7 @@ class Users extends Component {
         return (
           <User 
           key={user.id} 
-          users={this.props.users} 
+          users={this.state.users} 
           user={user} 
           delete={this.props.delete}/>
         )
@@ -30,5 +38,12 @@ class Users extends Component {
   }
 };
 
-export default Users;
+const mapStateToProps = state => {
+  return {
+    users: state.users
+  }
+}
+
+export default connect(mapStateToProps)(Users)
+
 

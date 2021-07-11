@@ -15,7 +15,6 @@ class Usertasks extends Component {
     super(props);
 
     this.state = {
-        requesting: false,
         usertasks: this.props.usertasks
       }
   };
