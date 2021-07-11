@@ -9,18 +9,22 @@ class User extends Component {
 
    
     let user = {}
-    let usertasks = []
+    // let usertasks = []
 
-    if (this.props.user && this.props.usertasks){
+    if (this.props.user){
         user = this.props.user;
-        usertasks = this.props.usertasks;
+        // usertasks = this.props.usertasks;
     }
  
     return (
       <div>
         <li>
           {user.attributes.username}
-          <Usertasks users={this.props.users} user={user} usertasks={usertasks} delete={this.props.delete}/>
+          <Usertasks 
+          users={this.props.users} 
+          user={user} 
+          // usertasks={usertasks} 
+          delete={this.props.delete}/>
         </li>
       </div>
     );

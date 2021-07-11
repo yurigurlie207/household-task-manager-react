@@ -29,7 +29,7 @@ class Dashboard extends Component {
             <button onClick={this.handleOnClick}>Refresh with Latest Database Info</button>
         <MainContainer 
             subtasks={this.props.subtasks}
-            usertasks={this.props.usertasks}
+            // usertasks={this.props.usertasks}
             users={this.props.users}
             deleteUsertasks={this.props.deleteUsertasks}
             assignUsertasks={this.props.assignUsertasks}

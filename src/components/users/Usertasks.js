@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 
 
 class Usertasks extends Component {
@@ -14,24 +15,27 @@ class Usertasks extends Component {
     super(props);
 
     this.state = {
-        requesting: false
+        requesting: false,
+        usertasks: this.props.usertasks
       }
   };
 
 
   render() {
-  
+    console.log("HMM")
+    console.log(this.props.usertasks)
+    console.log(this.state.usertasks)
     let usertaskList = []
     // console.log(this.state.usertasks)
-    if (this.props.usertasks.data) {
-          const usertasks = this.props.usertasks.data
+    if (this.state.usertasks.data) {
+          const usertasks = this.state.usertasks.data
           // console.log(usertasks)
           const userID = this.props.user.id 
           const associatedTasks = usertasks.filter(usertask => usertask.relationships.user.data.id === userID);
 
           usertaskList = associatedTasks.map( usertask => {
             
-            const subtask = this.props.usertasks.included.find(subtask => subtask.id === usertask.relationships.subtask.data.id)
+            const subtask = this.state.usertasks.included.find(subtask => subtask.id === usertask.relationships.subtask.data.id)
             return (
             // <li>{usertask.id}, {usertask.relationships.user.data.id}, {usertask.relationships.subtask.data.id}</li>
             <li>{subtask.attributes.title} :::
@@ -51,5 +55,11 @@ class Usertasks extends Component {
 
   }
 
-export default Usertasks
+  const mapStateToProps = state => {
+    return {
+      usertasks: state.usertasks
+    }
+  }
+
+export default connect(mapStateToProps)(Usertasks)
 

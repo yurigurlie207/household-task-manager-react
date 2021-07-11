@@ -10,7 +10,7 @@ class MainContainer extends Component {
         this.state = {
             requesting: false,
             subtasks: this.props.subtasks,
-            usertasks: this.props.usertasks,
+            // usertasks: this.props.usertasks,
             users: this.props.users
           }
       };
@@ -46,7 +46,7 @@ class MainContainer extends Component {
                     <h1>User Assignments</h1>
                         <Users
                         users={this.state.users}
-                        usertasks={this.state.usertasks}
+                        // usertasks={this.state.usertasks}
                         delete={this.props.deleteUsertasks}
                         />
                     </div>  
