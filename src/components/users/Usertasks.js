@@ -1,17 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 
-
 class Usertasks extends Component {
-
-
-  handleDeleteClick(event)  {
-  //  event.target.parentElement.remove()
-  //  console.log("HMM")
-  //  console.log(event.target.id)
-   this.props.delete(event.target.id);
-
-  }
 
   constructor(props) {
     super(props);
@@ -21,11 +11,17 @@ class Usertasks extends Component {
       }
   };
 
+  handleDeleteClick = (id) => {
+    this.props.delete(id);
+    debugger
+    this.setState({
+      usertasks: this.state.usertasks.data.filter(usertask => usertask.id !== id)
+    })
+   }
 
   render() {
 
     let usertaskList = []
-  
     if (this.state.usertasks.data) {
           const usertasks = this.state.usertasks.data
    
@@ -38,7 +34,7 @@ class Usertasks extends Component {
             return (
             // <li>{usertask.id}, {usertask.relationships.user.data.id}, {usertask.relationships.subtask.data.id}</li>
             <li key={usertask.id}>{subtask.attributes.title} :::
-            <button id={usertask.id} onClick={(event) => this.handleDeleteClick(event)}> Unassign </button>
+            <button id={usertask.id} onClick={this.handleDeleteClick(usertask.id)}> Unassign </button>
             </li>
             )
           })
