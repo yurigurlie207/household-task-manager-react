@@ -7,13 +7,10 @@ class User extends Component {
 
   render() {
 
-   
     let user = {}
-    // let usertasks = []
 
     if (this.props.user){
         user = this.props.user;
-        // usertasks = this.props.usertasks;
     }
  
     return (
@@ -23,7 +20,6 @@ class User extends Component {
           <Usertasks 
           users={this.props.users} 
           user={user} 
-          // usertasks={usertasks} 
           delete={this.props.delete}/>
         </li>
       </div>

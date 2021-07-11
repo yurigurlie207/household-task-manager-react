@@ -22,14 +22,12 @@ class Usertasks extends Component {
 
 
   render() {
-    console.log("HMM")
-    console.log(this.props.usertasks)
-    console.log(this.state.usertasks)
+
     let usertaskList = []
-    // console.log(this.state.usertasks)
+  
     if (this.state.usertasks.data) {
           const usertasks = this.state.usertasks.data
-          // console.log(usertasks)
+   
           const userID = this.props.user.id 
           const associatedTasks = usertasks.filter(usertask => usertask.relationships.user.data.id === userID);
 

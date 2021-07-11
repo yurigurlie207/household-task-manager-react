@@ -46,7 +46,6 @@ class MainContainer extends Component {
                     <h1>User Assignments</h1>
                         <Users
                         users={this.state.users}
-                        // usertasks={this.state.usertasks}
                         delete={this.props.deleteUsertasks}
                         />
                     </div>  

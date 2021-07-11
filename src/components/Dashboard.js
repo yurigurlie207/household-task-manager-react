@@ -29,7 +29,6 @@ class Dashboard extends Component {
             <button onClick={this.handleOnClick}>Refresh with Latest Database Info</button>
         <MainContainer 
             subtasks={this.props.subtasks}
-            // usertasks={this.props.usertasks}
             users={this.props.users}
             deleteUsertasks={this.props.deleteUsertasks}
             assignUsertasks={this.props.assignUsertasks}
@@ -51,7 +50,6 @@ const mapDispatchToProps = dispatch => ({
     return {
       subtasks: state.subtasks,
       users: state.users,
-      usertasks: state.usertasks,
       requesting: state.requesting
     }
   }
