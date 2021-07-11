@@ -15,6 +15,14 @@ class Subtasks extends Component {
     }
   }
 
+  removeSubtask = (id) => {
+
+    this.setState({
+      subtasks: this.state.subtasks.filter(subtask => subtask.id !== id)
+    })
+    
+  }
+
   render() {
 
   
@@ -26,7 +34,7 @@ class Subtasks extends Component {
             subtask={subtask}
             users={this.state.users}
             assign={this.props.assign}
-            remove={this.props.remove}
+            remove={this.removeSubtask}
         />
       )
     });

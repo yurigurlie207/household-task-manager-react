@@ -11,13 +11,13 @@ class Subtask extends Component {
     }
   }
 
-  handleAssignClick = (event) => {
-    this.props.assign(this.state.selectedUsers,this.props.subtask.id);
-    
+  handleAssignClick = () => {
     if (this.state.selectedUsers.length > 0) 
     { 
-      this.props.remove(this.props.subtask.id);
+      this.props.assign(this.state.selectedUsers,this.props.subtask.id);
     }
+    this.props.remove(this.props.subtask.id)
+
   }
 
   handleSelectChange = e => {

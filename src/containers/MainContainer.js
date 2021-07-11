@@ -13,16 +13,9 @@ class MainContainer extends Component {
           }
       };
   
-    handleRemove = (id) => {
-        this.props.deleteUsertasks();
-        // const newSubtaskList = this.state.subtasks.filter((subtask) => subtask.id !== id); 
-        // this.setState({subtasks: newSubtaskList})
-    }
-
  
     render() {
-    
-    
+
         return (
             <div className="main">
                 <div className="subtask">
@@ -30,7 +23,6 @@ class MainContainer extends Component {
                         <h1>Unassigned Subtasks</h1>
                         <Subtasks
                         assign={this.props.assignUsertasks}
-                        remove={this.handleRemove}
                         />
                 </div>
                 <div className="users">
