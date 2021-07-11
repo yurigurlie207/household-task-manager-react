@@ -25,8 +25,6 @@ class Dashboard extends Component {
         <div>  
             <button onClick={this.handleOnClick}>Refresh with Latest Database Info</button>
         <MainContainer 
-            subtasks={this.props.subtasks}
-            // users={this.props.users}
             deleteUsertasks={this.props.deleteUsertasks}
             assignUsertasks={this.props.assignUsertasks}
             />
@@ -43,13 +41,6 @@ const mapDispatchToProps = dispatch => ({
     deleteUsertasks: (usertaskID) => dispatch(deleteUsertasks(usertaskID))
   })
   
-  const mapStateToProps = state => {
-    return {
-      subtasks: state.subtasks,
-      // users: state.users,
-    
-    }
-  }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
+export default connect(null, mapDispatchToProps)(Dashboard)

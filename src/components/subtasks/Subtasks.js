@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Subtask from './Subtask';
+import { connect } from 'react-redux';
 
 
 class Subtasks extends Component {
@@ -8,20 +9,24 @@ class Subtasks extends Component {
     super(props);
 
     this.state = {
-      selectedUsers: []
-
+      subtasks: this.props.subtasks,
+      users: this.props.users
     }
   }
 
   render() {
 
-    const subtasks = this.props.subtasks || []
+    console.log("HMMM")
+    console.log(this.props.users)
+    console.log(this.state.users)
+
+    const subtasks = this.state.subtasks || []
     const subtaskList = subtasks.map(subtask => {
       return (
         <Subtask
             key={subtask.id}
             subtask={subtask}
-            users={this.props.users}
+            users={this.state.users}
             assign={this.props.assign}
             remove={this.props.remove}
         />
@@ -36,4 +41,14 @@ class Subtasks extends Component {
    }
   };
 
-export default Subtasks;
+
+  const mapStateToProps = state => {
+    return {
+      subtasks: state.subtasks,
+      users: state.users
+    }
+  }
+
+export default connect(mapStateToProps)(Subtasks)
+
+
