@@ -69,7 +69,6 @@ export default function manageTasks(state = {
           return { 
               ...state,
               usertasks: state.usertasks.data.filter(usertask => usertask.id !== action.usertaskID),
-              requesting: false
             }
          
         

@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
 import Subtask from './Subtask';
 import { connect } from 'react-redux';
-import {fetchSubtasks} from '../../actions/subtasks'
-
 
 
 class Subtasks extends Component {
 
-  componentDidMount() {
-    this.props.fetchSubtasks();
-}
 
   constructor(props) {
     super(props);
@@ -44,10 +39,7 @@ class Subtasks extends Component {
    }
   };
 
-  const mapDispatchToProps = dispatch => ({
-    fetchSubtasks: () => dispatch(fetchSubtasks())
-  })
-
+ 
   const mapStateToProps = state => {
     return {
       subtasks: state.subtasks,
@@ -55,6 +47,6 @@ class Subtasks extends Component {
     }
   }
 
-export default connect(mapStateToProps,mapDispatchToProps)(Subtasks)
+export default connect(mapStateToProps)(Subtasks)
 
 

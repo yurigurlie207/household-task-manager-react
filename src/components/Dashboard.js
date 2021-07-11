@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
 import MainContainer from '../containers/MainContainer';
 import { connect } from 'react-redux'
-import { assignUsertasks, deleteUsertasks } from '../actions/subtasks'
+import { fetchUsertasks, fetchUsers, fetchSubtasks,assignUsertasks, deleteUsertasks } from '../actions/subtasks'
 
 class Dashboard extends Component {
+
+    componentDidMount() {
+        this.props.fetchUsers();
+        this.props.fetchUsertasks();
+        this.props.fetchSubtasks();
+    }
+    
   
     handleOnClick = () => {
       this.props.history.replace(`/reload`);
@@ -27,6 +34,9 @@ class Dashboard extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
+    fetchUsertasks: () => dispatch(fetchUsertasks()),
+    fetchUsers: () => dispatch(fetchUsers()),
+    fetchSubtasks: () => dispatch(fetchSubtasks()),
     assignUsertasks: (userIDs, subtaskID) => dispatch(assignUsertasks(userIDs,subtaskID)),
     deleteUsertasks: (usertaskID) => dispatch(deleteUsertasks(usertaskID))
   })

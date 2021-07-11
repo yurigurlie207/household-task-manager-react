@@ -1,20 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import {fetchUsertasks} from '../../actions/subtasks'
-
 
 
 class Usertasks extends Component {
 
-  componentDidMount() {
-    this.props.fetchUsertasks();
-  }
 
-  handleDeleteClick(event) {
- 
-   event.target.parentElement.remove()
+  handleDeleteClick(event)  {
+  //  event.target.parentElement.remove()
+  //  console.log("HMM")
+  //  console.log(event.target.id)
    this.props.delete(event.target.id);
- 
+
   }
 
   constructor(props) {
@@ -64,9 +60,5 @@ class Usertasks extends Component {
     }
   }
 
-const mapDispatchToProps = dispatch => ({
-  fetchUsertasks: () => dispatch(fetchUsertasks())
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(Usertasks)
+export default connect(mapStateToProps)(Usertasks)
 
