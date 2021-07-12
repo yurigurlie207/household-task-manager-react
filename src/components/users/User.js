@@ -1,9 +1,24 @@
 import React, { Component } from 'react';
 import Usertasks from './Usertasks'
+import { connect } from 'react-redux'
 
 class User extends Component {
 
- 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+        usertasks: this.props.usertasks
+      }
+  };
+  
+
+  removeUsertask = (id) => {
+    this.setState({
+      usertasks: this.state.usertasks.data.filter(usertask => usertask.id !== id)
+    })
+    
+  }
 
   render() {
 
@@ -18,13 +33,22 @@ class User extends Component {
         <li>
           {user.attributes.username}
           <Usertasks 
+          usertasks={this.state.usertasks}
           users={this.props.users} 
           user={user} 
-          delete={this.props.delete}/>
+          delete={this.props.delete}
+          remove={this.removeUsertask}/>
         </li>
       </div>
     );
   }
 };
 
-export default User;
+const mapStateToProps = state => {
+  return {
+    usertasks: state.usertasks
+  }
+}
+
+export default connect(mapStateToProps)(User)
+

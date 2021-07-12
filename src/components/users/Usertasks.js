@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
 
 class Usertasks extends Component {
 
@@ -13,10 +12,7 @@ class Usertasks extends Component {
 
   handleDeleteClick = (id) => {
     this.props.delete(id);
-    debugger
-    this.setState({
-      usertasks: this.state.usertasks.data.filter(usertask => usertask.id !== id)
-    })
+    this.props.remove(id)
    }
 
   render() {
@@ -50,11 +46,7 @@ class Usertasks extends Component {
 
   }
 
-  const mapStateToProps = state => {
-    return {
-      usertasks: state.usertasks
-    }
-  }
 
-export default connect(mapStateToProps)(Usertasks)
+
+export default Usertasks
 
