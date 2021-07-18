@@ -12,6 +12,7 @@ class Users extends Component {
         users: this.props.users
       }
   };
+  
   render() {
 
     let userList = [];
