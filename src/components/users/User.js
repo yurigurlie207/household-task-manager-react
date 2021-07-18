@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Usertasks from './Usertasks'
 import { connect } from 'react-redux'
 
 class User extends Component {
@@ -12,10 +11,12 @@ class User extends Component {
       }
   };
   
-  removeUsertask = (id) => {
-    this.props.delete(id); //persists to database
+  removeUsertask = (event) => {
+    // debugger
+    this.props.delete(event.target.id); //persists to database
+
     this.setState({
-      usertasks: this.state.usertasks.data.filter(usertask => usertask.id !== id)
+      usertasks: this.state.usertasks.data.filter(usertask => usertask.id !== event.target.id)
     })
   }
 
