@@ -21,12 +21,15 @@ class Users extends Component {
       usertasksByUser[i].username = user.attributes.username
       usertasksByUser[i].usertasks = {}
 
-      // for (let j = 0; j < usertasks.length; j++) {
-      //     if (usertasks[j].user_id === user.id ){
-      //       usertasksByUser[i]['usertasks'][usertasks[i].usertask_id] = usertasks[i].subtasktitle
-      //       usertasks = usertasks.splice(j,1)
-      //     }
-      // }
+      for (let j = 0; j < usertasks.length;) {
+          if (usertasks[j].relationships.user.data.id === user.id ){
+            usertasksByUser[i]['usertasks'][usertasks[j].id] = usertasks[j].relationships.subtask.data.id
+            usertasks.splice(j,1)
+          }
+          else {
+            j++;
+          }
+      }
 
    
     }
