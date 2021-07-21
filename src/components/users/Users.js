@@ -8,8 +8,11 @@ class Users extends Component {
   constructor(props) {
     super(props);
 
-    let usertasksByUser = {}
+    let usertasksByUser = []
 
+    for (let i = 0; i < this.props.users.length; i++) {
+     
+    }
 
     this.state = {
         // users: this.props.users,
@@ -20,7 +23,7 @@ class Users extends Component {
   };
 
     // datastruture i would want
-    // {[ 
+    // [ 
     //   { id: x,
     //     username: mom,
     //     usertasks: 
@@ -48,7 +51,7 @@ class Users extends Component {
     //       etc
     //     }
     //    }
-    // ]}
+    // ]
 
   
   render() {
