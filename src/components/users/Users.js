@@ -8,33 +8,72 @@ class Users extends Component {
   constructor(props) {
     super(props);
 
+    let usertasksByUser = {}
+
+
     this.state = {
-        users: this.props.users
+        // users: this.props.users,
+        // usertasks: this.props.usertasks
+        usertasksByUser: usertasksByUser
       }
+
   };
+
+    // datastruture i would want
+    // {[ 
+    //   { id: x,
+    //     username: mom,
+    //     usertasks: 
+    //     {
+    //       usertaskid: usetaskname,
+    //       usertaskid: usertaskname
+    //       etc
+    //     }
+    //    },
+    //   { id: x,
+    //     username: mom,
+    //     usertasks: 
+    //     {
+    //       usertaskid: usetaskname,
+    //       usertaskid: usertaskname
+    //       etc
+    //     }
+    //    },
+    //   { id: x,
+    //     username: mom,
+    //     usertasks: 
+    //     {
+    //       usertaskid: usetaskname,
+    //       usertaskid: usertaskname
+    //       etc
+    //     }
+    //    }
+    // ]}
+
   
   render() {
 
-    let userList = [];
+    console.log(this.state.usertasksByUser)
+  //   let userList = [];
 
-    if (this.props.users){
+  //   if (this.props.users){
 
-      const  users = this.props.users || []
-      userList = users.map( user => {
+  //     const  users = this.props.users || []
+  //     userList = users.map( user => {
 
-        return (
-          <User 
-          key={user.id} 
-          users={this.state.users} 
-          user={user} 
-          delete={this.props.delete}/>
-        )
-      });
-   }
+  //       return (
+  //         <User 
+  //         key={user.id} 
+  //         users={this.state.users} 
+  //         user={user} 
+  //         delete={this.props.delete}/>
+  //       )
+  //     });
+  //  }
  
     return(
       <ul>
-        {userList}
+      
       </ul>
     );
   }
@@ -42,7 +81,8 @@ class Users extends Component {
 
 const mapStateToProps = state => {
   return {
-    users: state.users
+    users: state.users,
+    usertasks: state.usertasks
   }
 }
 
