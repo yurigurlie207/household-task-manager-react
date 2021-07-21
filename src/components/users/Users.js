@@ -16,18 +16,19 @@ class Users extends Component {
 
     for (let i = 0; i < users.length; i++) {
       user = users[i]
+      usertasksByUser[i] = {}
       usertasksByUser[i].id = user.id
       usertasksByUser[i].username = user.attributes.username
       usertasksByUser[i].usertasks = {}
 
-      for (let j = 0; j < usertasks.length; j++) {
-          if (usertasks[j].user_id === user.id ){
-            usertasksByUser[i]['usertasks'][usertasks[i].usertask_id] = usertasks[i].subtasktitle
-            usertasks = usertasks.splice(j,1)
-          }
-      }
+      // for (let j = 0; j < usertasks.length; j++) {
+      //     if (usertasks[j].user_id === user.id ){
+      //       usertasksByUser[i]['usertasks'][usertasks[i].usertask_id] = usertasks[i].subtasktitle
+      //       usertasks = usertasks.splice(j,1)
+      //     }
+      // }
 
-      // usertasks: this.state.usertasks.data.filter(usertask => usertask.id !== event.target.id)
+   
     }
 
     this.state = {
