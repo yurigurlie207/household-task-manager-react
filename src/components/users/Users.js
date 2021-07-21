@@ -11,14 +11,15 @@ class Users extends Component {
     let usertasksByUser = []
     let usertasks = this.props.usertasks.data
     let users = this.props.users
-    
+    let user = {}
     for (let i = 0; i < users.length; i++) {
-      let user = users[i]
+      user = users[i]
       usertasksByUser[i]['id'] = user.id
       usertasksByUser[i]['username'] = user.attributes.username
       usertasksByUser[i]['usertasks'] = {}
 
-      for (let i = 0; i < usertasks.length; i++) {
+      for (let j = 0; j < usertasks.length; j++) {
+
       }
 
       // usertasks: this.state.usertasks.data.filter(usertask => usertask.id !== event.target.id)
