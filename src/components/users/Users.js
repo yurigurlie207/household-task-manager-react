@@ -12,25 +12,29 @@ class Users extends Component {
     let users = this.props.users
 
     let user = {}
+    let z = 0;
 
     for (let i = 0; i < users.length; i++) {
       user = users[i]
       usertasksByUser[i] = {}
       usertasksByUser[i].id = user.id
       usertasksByUser[i].username = user.attributes.username
-      usertasksByUser[i].usertasks = {}
+      usertasksByUser[i].usertasks = []
 
       for (let j = 0; j < usertasks.length;) {
           if (usertasks[j].relationships.user.data.id === user.id ){
             let subtask = this.props.usertasks.included.find(subtask => subtask.id === usertasks[j].relationships.subtask.data.id)
-            usertasksByUser[i]['usertasks'].id = usertasks[j].id
-            usertasksByUser[i]['usertasks'].title = subtask.attributes.title
+            usertasksByUser[i].usertasks[z]={}
+            usertasksByUser[i]['usertasks'][z].id = usertasks[j].id
+            usertasksByUser[i]['usertasks'][z].title = subtask.attributes.title
             usertasks.splice(j,1)
+            z++;
           }
           else {
             j++;
           }
       }
+      z = 0;
     }
 
     this.state = {

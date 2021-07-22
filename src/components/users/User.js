@@ -1,14 +1,29 @@
 import React, { Component } from 'react';
-import Usertasks from './Usertasks';
+import Usertask from './Usertask';
 
 
 class User extends Component {
 
   render () {
+    let usertasks = {}
+
+    if (this.props.usertasks){
+
+       usertasks = this.props.usertasks.map( usertask => {
+  
+        return (
+          <Usertask key={usertask.id} 
+                    title={usertask.title} />
+        )
+      });
+    }
+
     return (
       <ul>
-        <li>{this.props.user.username}</li>
-        <Usertasks />
+        <li>{this.props.user.username} ::
+          <div>{usertasks}</div>
+        </li>
+       
       </ul>
     );
   };
