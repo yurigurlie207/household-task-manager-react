@@ -43,10 +43,21 @@ class Users extends Component {
 
   };
 
-  removeUsertask = (id) => {
-    debugger
-  
-    this.props.delete(id); //persists to database
+  removeUsertask = (userId, usertaskId) => {
+    // debugger
+    // this.props.delete(usertaskId); //persists to database
+
+  let updatedusertasksByUser = this.state.usertasksByUser
+
+   updatedusertasksByUser.map( user => {
+      if (user.id === userId) {
+        user.usertasks.filter(usertask => usertask.id !== usertaskId)
+      }
+    })
+
+    console.log("HM")
+    console.log(this.state.usertasksByUser)
+    console.log(updatedusertasksByUser)
 
     this.setState({
       // usertasks: this.state.usertasks.data.filter(usertask => usertask.id !== event.target.id)
@@ -55,7 +66,8 @@ class Users extends Component {
 
   render() {
   
-  console.log(this.state.usertasksByUser)
+  // console.log(this.state.usertasksByUser)
+
     let userList = [];
 
     if (this.state.usertasksByUser){

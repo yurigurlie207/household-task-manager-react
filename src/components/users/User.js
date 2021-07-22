@@ -14,6 +14,7 @@ class User extends Component {
         return (
           <Usertask key={usertask.id} 
                     id={usertask.id}
+                    userid={this.props.user.id}
                     title={usertask.title} 
                     remove={this.props.remove}/>
         )

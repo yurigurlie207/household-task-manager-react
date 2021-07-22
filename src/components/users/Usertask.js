@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Usertask extends Component {
 
   handleUnassignClick = () => {
-      this.props.remove(this.props.id)
+    this.props.remove(this.props.userid, this.props.id)
   }
 
   render () { 
