@@ -23,7 +23,8 @@ class Users extends Component {
       for (let j = 0; j < usertasks.length;) {
           if (usertasks[j].relationships.user.data.id === user.id ){
             let subtask = this.props.usertasks.included.find(subtask => subtask.id === usertasks[j].relationships.subtask.data.id)
-            usertasksByUser[i]['usertasks'][usertasks[j].id] = subtask.attributes.title
+            usertasksByUser[i]['usertasks'].id = usertasks[j].id
+            usertasksByUser[i]['usertasks'].title = subtask.attributes.title
             usertasks.splice(j,1)
           }
           else {
