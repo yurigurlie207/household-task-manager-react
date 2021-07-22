@@ -45,22 +45,27 @@ class Users extends Component {
 
   removeUsertask = (userId, usertaskId) => {
     // debugger
-    // this.props.delete(usertaskId); //persists to database
-
+    this.props.delete(usertaskId); //persists to database
+  // console.log(this.state.usertasksByUser)
   let updatedusertasksByUser = this.state.usertasksByUser
 
    updatedusertasksByUser.map( user => {
       if (user.id === userId) {
-        user.usertasks.filter(usertask => usertask.id !== usertaskId)
+        for (let i = 0; i < user.usertasks.length; i++) {
+          if (user.usertasks[i].id === usertaskId) {
+            user.usertasks.splice(i,1)
+            break
+          }
+        }
       }
     })
 
-    console.log("HM")
-    console.log(this.state.usertasksByUser)
-    console.log(updatedusertasksByUser)
+    // console.log("HM")
+    // console.log(this.state.usertasksByUser)
+    // console.log(updatedusertasksByUser)
 
     this.setState({
-      // usertasks: this.state.usertasks.data.filter(usertask => usertask.id !== event.target.id)
+      usertasksByUser: updatedusertasksByUser
     })
   }
 
