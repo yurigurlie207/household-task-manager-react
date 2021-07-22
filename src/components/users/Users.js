@@ -40,7 +40,6 @@ class Users extends Component {
 
   };
 
-   
   // removeUsertask = (event) => {
   //   // debugger
   //   this.props.delete(event.target.id); //persists to database
@@ -51,29 +50,29 @@ class Users extends Component {
   // }
 
   render() {
+  
+  // console.log(this.state.usertasksByUser)
+    let userList = [];
 
-    console.log(this.state.usertasksByUser)
-  //   let userList = [];
+    if (this.state.usertasksByUser){
 
-  //   if (this.props.users){
+      userList = this.state.usertasksByUser.map( user => {
 
-  //     const  users = this.props.users || []
-  //     userList = users.map( user => {
+        let usertaskList = user.usertasks
 
-  //       return (
-  //         <User 
-  //         key={user.id} 
-  //         users={this.state.users} 
-  //         user={user} 
-  //         delete={this.props.delete}/>
-  //       )
-  //     });
-  //  }
+        return (
+          <User 
+          key={user.id} 
+          usertasks={usertaskList} 
+          user={user} 
+          delete={this.props.delete}/>
+        )
+      });
+   }
  
-
     return(
       <ul>
-        <User />
+        {userList}
       </ul>
     );
   }

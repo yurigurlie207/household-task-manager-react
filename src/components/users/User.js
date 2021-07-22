@@ -3,9 +3,11 @@ import Usertasks from './Usertasks';
 
 
 class User extends Component {
+
   render () {
     return (
       <ul>
+        <li>{this.props.user.username}</li>
         <Usertasks />
       </ul>
     );
