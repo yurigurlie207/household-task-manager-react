@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import User from './User';
 import { connect } from 'react-redux'
 
-
 class Users extends Component {
 
   constructor(props) {
@@ -31,8 +30,6 @@ class Users extends Component {
             j++;
           }
       }
-
-   
     }
 
     this.state = {
@@ -43,38 +40,16 @@ class Users extends Component {
 
   };
 
-    // datastruture i would want
-    // [ 
-    //   { id: x,
-    //     username: mom,
-    //     usertasks: 
-    //     {
-    //       usertaskid: usetaskname,
-    //       usertaskid: usertaskname
-    //       etc
-    //     }
-    //    },
-    //   { id: x,
-    //     username: mom,
-    //     usertasks: 
-    //     {
-    //       usertaskid: usetaskname,
-    //       usertaskid: usertaskname
-    //       etc
-    //     }
-    //    },
-    //   { id: x,
-    //     username: mom,
-    //     usertasks: 
-    //     {
-    //       usertaskid: usetaskname,
-    //       usertaskid: usertaskname
-    //       etc
-    //     }
-    //    }
-    // ]
+   
+  // removeUsertask = (event) => {
+  //   // debugger
+  //   this.props.delete(event.target.id); //persists to database
 
-  
+  //   this.setState({
+  //     usertasks: this.state.usertasks.data.filter(usertask => usertask.id !== event.target.id)
+  //   })
+  // }
+
   render() {
 
     console.log(this.state.usertasksByUser)
@@ -95,9 +70,10 @@ class Users extends Component {
   //     });
   //  }
  
+
     return(
       <ul>
-      
+        <User />
       </ul>
     );
   }
