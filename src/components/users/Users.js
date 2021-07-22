@@ -38,25 +38,24 @@ class Users extends Component {
     }
 
     this.state = {
-        // users: this.props.users,
-        // usertasks: this.props.usertasks
         usertasksByUser: usertasksByUser
       }
 
   };
 
-  // removeUsertask = (event) => {
-  //   // debugger
-  //   this.props.delete(event.target.id); //persists to database
+  removeUsertask = (id) => {
+    debugger
+  
+    this.props.delete(id); //persists to database
 
-  //   this.setState({
-  //     usertasks: this.state.usertasks.data.filter(usertask => usertask.id !== event.target.id)
-  //   })
-  // }
+    this.setState({
+      // usertasks: this.state.usertasks.data.filter(usertask => usertask.id !== event.target.id)
+    })
+  }
 
   render() {
   
-  // console.log(this.state.usertasksByUser)
+  console.log(this.state.usertasksByUser)
     let userList = [];
 
     if (this.state.usertasksByUser){
@@ -70,7 +69,8 @@ class Users extends Component {
           key={user.id} 
           usertasks={usertaskList} 
           user={user} 
-          delete={this.props.delete}/>
+          delete={this.props.delete}
+          remove={this.removeUsertask}/>
         )
       });
    }
